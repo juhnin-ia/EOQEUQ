@@ -9,33 +9,33 @@
   --font-display: "Bricolage Grotesque Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Newsreader Variable", ui-serif, Georgia, serif;
 
-  /* Cores do manual da marca (src/lib/marca.ts). Não mudam no modo escuro: o
-     logo troca o marrom pelo creme com escuro:, como na versão para fundo escuro. */
-  --color-marca-laranja: #e45c32;
-  --color-marca-verde: #2b7e53;
-  --color-marca-marrom: #2d251d;
-  --color-marca-creme: #f9f3eb;
+  /* Cores da marca (src/lib/marca.ts). Não mudam no modo escuro: o logo troca
+     o chumbo pelo gelo com escuro:. */
+  --color-marca-vermelho: #c8102e;
+  --color-marca-prata: #9aa1a9;
+  --color-marca-chumbo: #33383d;
+  --color-marca-gelo: #f3f5f7;
 
-  /* Tema (novo visual, #331): branco quente como papel, o marrom como tinta, o laranja
-     (coral) para ação e o verde (folha) para causas e selos. A areia é o creme da marca,
-     usada em faixas, chips e botões leves. */
-  --color-papel: #fcfaf7;
+  /* Tema "Era o que eu queria": gelo como fundo, branco nos cards, cinza nas faixas,
+     chumbo no texto, vermelho (coral) para ação e prata (folha) para causas, selos e
+     detalhes. Os nomes coral e folha ficaram do tema antigo, para as classes não mudarem. */
+  --color-papel: #f3f5f7;
   /* Fundo de cards, campos e menus: branco no claro, quase preto no escuro. */
   --color-superficie: #ffffff;
-  --color-areia: #f5f0e9;
-  --color-tinta: #221c16;
-  --color-suave: #6d645b;
-  --color-linha: #ebe4db;
-  --color-coral-50: #fdeee7;
-  --color-coral-100: #fbdccd;
-  --color-coral: #e45c32;
-  --color-coral-700: #b9401d;
-  --color-folha-50: #e6f2eb;
-  --color-folha: #2b7e53;
+  --color-areia: #e9ecef;
+  --color-tinta: #2b3036;
+  --color-suave: #5f666d;
+  --color-linha: #d7dbe0;
+  --color-coral-50: #fdecee;
+  --color-coral-100: #f8d3d8;
+  --color-coral: #c8102e;
+  --color-coral-700: #9b0c22;
+  --color-folha-50: #eceef1;
+  --color-folha: #5d656e;
 
   /* Sombras no lugar de bordas: leve nos cards, mais alta no que flutua (barra do celular, menus). */
-  --shadow-cartao: 0 1px 2px rgb(34 28 22 / 0.05), 0 8px 24px -12px rgb(34 28 22 / 0.14);
-  --shadow-flutuante: 0 2px 4px rgb(34 28 22 / 0.06), 0 24px 48px -20px rgb(34 28 22 / 0.28);
+  --shadow-cartao: 0 1px 2px rgb(43 48 54 / 0.06), 0 8px 24px -12px rgb(43 48 54 / 0.16);
+  --shadow-flutuante: 0 2px 4px rgb(43 48 54 / 0.07), 0 24px 48px -20px rgb(43 48 54 / 0.3);
 }
 
 /*
@@ -45,18 +45,18 @@
  */
 [data-tema="escuro"] {
   color-scheme: dark;
-  --color-papel: #131110;
-  --color-superficie: #1c1916;
-  --color-areia: #221e1a;
-  --color-tinta: #f6f1ea;
-  --color-suave: #a59b90;
-  --color-linha: #2f2a25;
-  --color-coral-50: #33201a;
-  --color-coral-100: #4a2a1f;
-  --color-coral: #ef6c43;
-  --color-coral-700: #f4936f;
-  --color-folha-50: #16281e;
-  --color-folha: #6fc493;
+  --color-papel: #16181b;
+  --color-superficie: #1e2125;
+  --color-areia: #25292e;
+  --color-tinta: #eef0f2;
+  --color-suave: #a3a9b0;
+  --color-linha: #33383e;
+  --color-coral-50: #3a1519;
+  --color-coral-100: #52191f;
+  --color-coral: #e5384f;
+  --color-coral-700: #f27383;
+  --color-folha-50: #23272c;
+  --color-folha: #c3c8ce;
 
   --color-sky-50: #0f2230;
   --color-sky-100: #163246;

@@ -5,7 +5,7 @@ import { formatarSeguidores, lugarDoEmbaixador } from "@/lib/embaixadores";
 import { formatarDataCurta } from "@/lib/texto";
 import { contar, Etiqueta, Vazio } from "./Blocos";
 
-/** Os embaixadores do bem: os no site primeiro, na ordem em que aparecem. O nome leva à edição. */
+/** Os embaixadores locais: os no site primeiro, na ordem em que aparecem. O nome leva à edição. */
 export async function Embaixadores() {
   const embaixadores = await db.embaixador.findMany({ orderBy: [{ ativo: "desc" }, { ordem: "asc" }, { nome: "asc" }] });
   const noSite = embaixadores.filter((e) => e.ativo);

@@ -5,7 +5,7 @@ import { registrarAuditoria } from "@/lib/auditoria";
 import { podeCriarOfertas } from "@/lib/clube";
 import { db, type Prisma } from "@/lib/db";
 
-// Ofertas e cupons do Clube do Bem (#248). Só um dono liberado pela moderação cria ofertas
+// Ofertas e cupons do Clube de Vantagens (#248). Só um dono liberado pela moderação cria ofertas
 // (src/lib/clube.ts), e só quem favoritou o negócio gera cupom: gerar o cupom já favorita.
 
 export const DIAS_MAXIMOS = 15;
@@ -146,7 +146,7 @@ export class ErroOferta extends Error {
 /** Cria uma oferta. Só um dono liberado, num negócio do diretório, e uma oferta ativa por vez. */
 export async function criarOferta(empresaId: string, usuarioId: string, oferta: DadosOferta): Promise<string> {
   if (!(await podeCriarOfertas(empresaId, usuarioId))) {
-    throw new ErroOferta("Seu negócio ainda não foi liberado para o Clube do Bem, ou a liberação foi suspensa.");
+    throw new ErroOferta("Seu negócio ainda não foi liberado para o Clube de Vantagens, ou a liberação foi suspensa.");
   }
   return db.$transaction(async (tx) => {
     // Trava o negócio: com dois envios ao mesmo tempo, o segundo vê a oferta do primeiro.

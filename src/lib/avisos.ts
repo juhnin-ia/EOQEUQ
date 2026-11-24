@@ -85,7 +85,7 @@ export const AVISOS: Record<string, { tipo: TipoAviso; texto: string }> = {
   },
   dono_ja_removido: { tipo: "erro", texto: "Essa conta já não era dona deste negócio." },
   dono_sem_confirmacao: { tipo: "erro", texto: "Marque a confirmação para remover o dono. Nada foi alterado." },
-  clube_liberado: { tipo: "sucesso", texto: "Dono liberado para criar ofertas no Clube do Bem." },
+  clube_liberado: { tipo: "sucesso", texto: "Dono liberado para criar ofertas no Clube de Vantagens." },
   clube_suspenso: { tipo: "info", texto: "Liberação suspensa. O dono não cria mais ofertas até ser liberado de novo." },
   clube_cnpj_invalido: { tipo: "erro", texto: "CNPJ inválido. Confira os números." },
   clube_cnpj_inativo: { tipo: "erro", texto: "Este CNPJ não está ativo na Receita, então o dono não pode ser liberado." },

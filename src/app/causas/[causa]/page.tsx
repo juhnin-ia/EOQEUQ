@@ -17,8 +17,8 @@ function textos(causa: Causa, total: number, cidades: number) {
     caminho: hrefCausa(causa.slug),
     descricao:
       total > 0
-        ? `${causa.descricao} ${total} ${total === 1 ? "negócio do bem" : "negócios do bem"} em ${onde}, com contatos e depoimentos de quem é cliente.`
-        : `${causa.descricao} Conhece um negócio assim? Indique no Negócio do Bem.`,
+        ? `${causa.descricao} ${total} ${total === 1 ? "negócio local" : "negócios locais"} em ${onde}, com contatos e depoimentos de quem é cliente.`
+        : `${causa.descricao} Conhece um negócio assim? Indique no Era o que eu queria.`,
     migalhas: [
       { nome: "Início", caminho: "/" },
       { nome: "Diretório", caminho: "/explorar" },

@@ -13,7 +13,7 @@ const embaixador: EmbaixadorNoSite = {
   fotoUrl: null,
   seguidores: "12 mil",
   numeroDeSeguidores: 12000,
-  titulo: "Embaixadora do bem",
+  titulo: "Embaixadora local",
   cidade: "Recife",
   uf: "PE",
   lugar: "Recife, PE",

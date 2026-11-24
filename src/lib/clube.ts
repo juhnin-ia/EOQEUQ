@@ -7,7 +7,7 @@ import { apagarDocumentosGuardados } from "@/lib/documentos";
 import { suspenderOfertasQueValem } from "@/lib/ofertas";
 import { normalizarTexto } from "@/lib/texto";
 
-// Regras do Clube do Bem (#248). Só a moderação libera um dono para criar ofertas, e só
+// Regras do Clube de Vantagens (#248). Só a moderação libera um dono para criar ofertas, e só
 // para negócio com CNPJ (o MEI também tem CNPJ) ativo na Receita. O dono pede a
 // verificação com o CNPJ, e o pedido espera na fila da moderação (#286).
 //

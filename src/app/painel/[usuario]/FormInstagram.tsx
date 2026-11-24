@@ -18,7 +18,7 @@ export function FormInstagram({ empresa, voltar }: { empresa: { id: string; inst
       <h2 className="font-display text-2xl font-semibold">Instagram</h2>
       <p className="text-suave">
         Hoje: <strong className="text-tinta">{rotuloDoInstagram(empresa.instagramUsername)}</strong>. O @ também é o endereço da página
-        (negociodobem.com/empresas/<span className="text-tinta">{comInstagram ? empresa.instagramUsername : "@"}</span>). O endereço antigo
+        (eraoqueeuqueria.com.br/empresas/<span className="text-tinta">{comInstagram ? empresa.instagramUsername : "@"}</span>). O endereço antigo
         continua levando para o novo.
       </p>
       <form action={acao} onSubmit={enviarSemLimpar(acao)} className="space-y-4">
@@ -28,7 +28,7 @@ export function FormInstagram({ empresa, voltar }: { empresa: { id: string; inst
           id="novoInstagram"
           rotulo={comInstagram ? "Novo @ do Instagram" : "@ do Instagram"}
           erro={estado?.erros?.instagram}
-          ajuda="Pode colar o link do perfil. A troca vale na hora; o Clube do Bem não é suspenso."
+          ajuda="Pode colar o link do perfil. A troca vale na hora; o Clube de Vantagens não é suspenso."
         >
           <input
             id="novoInstagram"

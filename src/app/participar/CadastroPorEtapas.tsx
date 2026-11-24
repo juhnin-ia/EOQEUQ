@@ -83,7 +83,7 @@ type Props = {
   instagramInicial: string;
   donoInicial: boolean;
   continuar: boolean;
-  /** O @ do Negócio do Bem no Instagram, para quem precisa falar com a gente. */
+  /** O @ do Era o que eu queria no Instagram, para quem precisa falar com a gente. */
   instagramDoProjeto: string | null;
 };
 
@@ -294,7 +294,7 @@ export function CadastroPorEtapas({ conta, instagramInicial, donoInicial, contin
         <input type="hidden" name="souDono" value={dono ? "sim" : ""} />
         <input type="hidden" name="semInstagram" value={semInstagram ? "sim" : ""} />
 
-        <Secao etapa="arroba" atual={etapa} titulo="Qual é o @ do negócio no Instagram?" subtitulo="A gente procura no Negócio do Bem e traz a foto do perfil.">
+        <Secao etapa="arroba" atual={etapa} titulo="Qual é o @ do negócio no Instagram?" subtitulo="A gente procura no Era o que eu queria e traz a foto do perfil.">
           <Campo id="instagram" rotulo="Instagram" erro={erro("instagram")}>
             <div className="relative">
               <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-suave">@</span>
@@ -673,7 +673,7 @@ function Escolha({
   const { negocio } = procura;
   return (
     <>
-      <Cartao nome={negocio.nome} instagram={procura.instagram} foto={negocio.fotoUrl} linha="No Negócio do Bem" />
+      <Cartao nome={negocio.nome} instagram={procura.instagram} foto={negocio.fotoUrl} linha="No Era o que eu queria" />
       {procura.caso === "confirmar" ? (
         negocio.motivo ? (
           <figure className="mt-4">
@@ -702,7 +702,7 @@ function EscolhaSemInstagram({ aoEscolher, aoVoltarAoArroba }: { aoEscolher: (ra
   return (
     <>
       <p className="rounded-2xl bg-areia p-4 text-sm leading-relaxed text-suave">
-        Tudo bem não ter Instagram. O perfil fica no Negócio do Bem com um endereço feito do nome e da cidade, e o dono
+        Tudo bem não ter Instagram. O perfil fica no Era o que eu queria com um endereço feito do nome e da cidade, e o dono
         pode colocar uma foto depois.
       </p>
       <button type="button" onClick={aoVoltarAoArroba} className="link mt-2 text-sm">

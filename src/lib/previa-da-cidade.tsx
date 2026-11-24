@@ -1,4 +1,4 @@
-// Prévia do link de uma página de cidade: "Negócios do bem em Salvador, BA".
+// Prévia do link de uma página de cidade: "Negócios locais em Salvador, BA".
 // A cidade com foto tem a prévia pronta de antemão, em JPEG: o npm run
 // cidades:fotos põe este desenho por cima da foto (scripts/fotos-das-cidades.ts).
 // A cidade sem foto usa o mesmo texto no creme da marca, com quantos negócios ela
@@ -23,27 +23,27 @@ export function PreviaDaCidade({ nome, quantos, sobreFoto = false }: { nome: str
         width: "100%",
         height: "100%",
         padding: "48px 72px 56px",
-        borderBottom: `14px solid ${CORES_DA_MARCA.laranja}`,
+        borderBottom: `14px solid ${CORES_DA_MARCA.vermelho}`,
         ...(sobreFoto
           ? { backgroundImage: "linear-gradient(to top, rgba(45, 37, 29, 0.88) 0%, rgba(45, 37, 29, 0.45) 45%, rgba(45, 37, 29, 0) 75%)" }
-          : { background: CORES_DA_MARCA.creme }),
+          : { background: CORES_DA_MARCA.gelo }),
       }}
     >
       <div style={{ display: "flex" }}>
-        <div style={{ display: "flex", padding: sobreFoto ? "16px 28px" : 0, borderRadius: 999, background: sobreFoto ? CORES_DA_MARCA.creme : "transparent" }}>
+        <div style={{ display: "flex", padding: sobreFoto ? "16px 28px" : 0, borderRadius: 999, background: sobreFoto ? CORES_DA_MARCA.gelo : "transparent" }}>
           <LogoNaImagem largura={sobreFoto ? 250 : 290} />
         </div>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ fontFamily: "Inter", fontSize: 34, color: sobreFoto ? CORES_DA_MARCA.creme : SUAVE }}>Negócios do bem em</div>
+        <div style={{ fontFamily: "Inter", fontSize: 34, color: sobreFoto ? CORES_DA_MARCA.gelo : SUAVE }}>Negócios locais em</div>
         <div
           style={{
             marginTop: 6,
             fontFamily: "Newsreader",
             fontSize: tamanhoDoNome,
             lineHeight: 1.04,
-            color: sobreFoto ? "#ffffff" : CORES_DA_MARCA.marrom,
+            color: sobreFoto ? "#ffffff" : CORES_DA_MARCA.chumbo,
           }}
         >
           {nome}
@@ -55,7 +55,7 @@ export function PreviaDaCidade({ nome, quantos, sobreFoto = false }: { nome: str
                 display: "flex",
                 padding: "10px 24px",
                 borderRadius: 999,
-                background: CORES_DA_MARCA.laranja,
+                background: CORES_DA_MARCA.vermelho,
                 color: "#ffffff",
                 fontFamily: "Inter",
                 fontSize: 28,

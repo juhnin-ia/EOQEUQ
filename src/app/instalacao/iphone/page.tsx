@@ -6,7 +6,7 @@ import { CabecaDoTutorial, IconeAdicionar, IconeCompartilhar, IconeDoApp, IconeT
 
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Instale o app no iPhone",
-  descricao: "Passo a passo para instalar o Negócio do Bem no iPhone e no iPad, pelo Safari.",
+  descricao: "Passo a passo para instalar o Era o que eu queria no iPhone e no iPad, pelo Safari.",
   caminho: "/instalacao/iphone",
 });
 
@@ -22,7 +22,7 @@ export default function InstalacaoIphone() {
       <Passos>
         <Passo numero={1} titulo="Abra o site no Safari">
           <p>
-            Abra <strong className="text-tinta">www.negociodobem.com</strong> no Safari. Se você está lendo isto no Safari
+            Abra <strong className="text-tinta">www.eraoqueeuqueria.com.br</strong> no Safari. Se você está lendo isto no Safari
             do iPhone, este passo já está feito.
           </p>
         </Passo>
@@ -51,7 +51,7 @@ export default function InstalacaoIphone() {
         </Passo>
         <Passo numero={4} titulo="Toque em “Adicionar”">
           <p>
-            Confira o nome, <strong className="text-tinta">Negócio do Bem</strong>, e toque em Adicionar, no canto de cima.
+            Confira o nome, <strong className="text-tinta">Era o que eu queria</strong>, e toque em Adicionar, no canto de cima.
             O ícone aparece na tela de início.
           </p>
           <IconeDoApp />

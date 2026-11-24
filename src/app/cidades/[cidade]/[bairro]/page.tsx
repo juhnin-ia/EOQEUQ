@@ -8,7 +8,7 @@ import { hrefBairro, hrefCidade, hrefDiretorio, SEM_FILTROS, type CidadeComNegoc
 import { CATEGORIAS } from "@/lib/dominio";
 import { jsonLdDaVitrine, metadadosDaPagina, type Migalha } from "@/lib/seo";
 
-// "Negócios do bem no Centro, Crato, CE": a página de quem procura perto de casa.
+// "Negócios locais no Centro, Crato, CE": a página de quem procura perto de casa.
 // Só existe para bairros com negócios no diretório; os outros mostram "Não encontramos esta página".
 
 type Parametros = PageProps<"/cidades/[cidade]/[bairro]">["params"];
@@ -30,8 +30,8 @@ function textos(cidade: CidadeComNegocios, bairro: BairroComNegocios) {
   return {
     onde,
     caminho,
-    titulo: `Negócios do bem em ${lugar}`,
-    descricao: `${quantos} do bem no bairro ${bairro.bairro}, em ${onde}: negócios do seu bairro indicados por quem é cliente. Veja tipos, causas, contatos e depoimentos.`,
+    titulo: `Negócios locais em ${lugar}`,
+    descricao: `${quantos} no bairro ${bairro.bairro}, em ${onde}: negócios do seu bairro indicados por quem é cliente. Veja tipos, causas, contatos e depoimentos.`,
     migalhas: [
       { nome: "Início", caminho: "/" },
       { nome: "Cidades", caminho: "/cidades" },

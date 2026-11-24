@@ -2,7 +2,7 @@ import { CapaDaCidade } from "@/components/CapaDaCidade";
 import { fotoDaCidade } from "@/lib/fotos-das-cidades";
 import { svgDoIcone } from "@/lib/marca";
 
-const ICONE_CREME = `data:image/svg+xml,${encodeURIComponent(svgDoIcone("creme"))}`;
+const ICONE_CREME = `data:image/svg+xml,${encodeURIComponent(svgDoIcone("gelo"))}`;
 
 /**
  * A capa do perfil. O negócio só tem a foto de perfil, então a capa vem da cidade:
@@ -14,13 +14,13 @@ export function CapaDoNegocio({ cidade, uf }: { cidade: string; uf: string }) {
   return (
     <div
       role="img"
-      aria-label="Negócio do Bem: compre de quem faz o bem"
-      className="flex h-48 items-center justify-center gap-6 rounded-3xl bg-marca-laranja px-6 sm:h-64 sm:gap-10"
+      aria-label="Era o que eu queria: compre de quem está perto"
+      className="flex h-48 items-center justify-center gap-6 rounded-3xl bg-marca-vermelho px-6 sm:h-64 sm:gap-10"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={ICONE_CREME} alt="" className="h-20 w-auto sm:h-28" />
-      <p className="max-w-[12rem] font-display text-2xl leading-tight font-semibold text-marca-creme sm:max-w-xs sm:text-4xl">
-        Compre de quem faz o bem.
+      <p className="max-w-[12rem] font-display text-2xl leading-tight font-semibold text-marca-gelo sm:max-w-xs sm:text-4xl">
+        Compre de quem está perto.
       </p>
     </div>
   );

@@ -8,7 +8,7 @@ import { RemoverDono } from "./RemoverDono";
 export type NegocioDaFicha = { id: string; instagramUsername: string; cidade: string; uf: string };
 
 /**
- * A ficha do CNPJ na Receita, para a moderação decidir a liberação no Clube do Bem: a
+ * A ficha do CNPJ na Receita, para a moderação decidir a liberação no Clube de Vantagens: a
  * situação, a cidade comparada com a do perfil, o contato, os sócios e, para cada dono,
  * se o nome bate com alguém da ficha. Usada na ficha do negócio e na fila do clube.
  */

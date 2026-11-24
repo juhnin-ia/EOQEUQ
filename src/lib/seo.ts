@@ -10,6 +10,7 @@ import { ehFotoDoSite } from "@/lib/fotos";
 import type { FotoDaCidade } from "@/lib/fotos-das-cidades";
 import { linkPerfil, perfilOficial } from "@/lib/instagram";
 import { nomeOficial } from "@/lib/municipios";
+import { NOME_DO_SITE } from "@/lib/marca";
 
 const AMBIENTE = ambienteDeDeploy();
 
@@ -27,9 +28,9 @@ export const ENDERECO_DO_SITE = (
 /** Só a produção entra nos buscadores; previews ficam de fora. */
 export const INDEXAVEL = AMBIENTE ? AMBIENTE === "production" : process.env.NODE_ENV === "production";
 
-export const NOME_DO_SITE = "Negócio do Bem";
+export { NOME_DO_SITE };
 
-export const TITULO_DO_SITE = "Negócio do Bem — compre de quem faz o bem";
+export const TITULO_DO_SITE = `${NOME_DO_SITE} — compre de quem está perto`;
 
 export const DESCRICAO_DO_SITE =
   "Diretório de negócios com consciência social e raízes na comunidade. Encontre, indique e fortaleça quem compartilha dos seus valores.";
@@ -42,7 +43,7 @@ export function urlAbsoluta(caminho: string): string {
 export const FORA_DA_BUSCA = { index: false, follow: true } as const;
 
 /** Texto alternativo da imagem geral de compartilhamento (src/app/opengraph-image.tsx). */
-export const ALT_DA_IMAGEM_DO_SITE = "Negócio do Bem: compre de quem faz o bem";
+export const ALT_DA_IMAGEM_DO_SITE = "Era o que eu queria: compre de quem está perto";
 
 const IMAGEM_DO_SITE = { url: "/opengraph-image", width: 1200, height: 630, type: "image/png", alt: ALT_DA_IMAGEM_DO_SITE };
 
@@ -112,7 +113,7 @@ export function jsonLdDoSite() {
         "@type": "WebSite",
         "@id": ID_SITE,
         name: NOME_DO_SITE,
-        alternateName: "Negocio do Bem",
+        alternateName: "Era o que eu queria",
         url: urlAbsoluta("/"),
         description: DESCRICAO_DO_SITE,
         inLanguage: "pt-BR",

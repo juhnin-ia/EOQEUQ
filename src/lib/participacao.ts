@@ -1,7 +1,7 @@
 // A primeira etapa do cadastro (/participar): a pessoa digita o @, e o caso decide
 // as opções da etapa seguinte. Sem banco, para testar cada caso sem navegador.
 
-/** O negócio com aquele @, ou null quando ele ainda não está no Negócio do Bem. */
+/** O negócio com aquele @, ou null quando ele ainda não está no Era o que eu queria. */
 export type NegocioProcurado = { moderacao: string; oculta: boolean; donos: number } | null;
 
 export type CasoDaProcura =

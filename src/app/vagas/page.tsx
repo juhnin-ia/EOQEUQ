@@ -21,7 +21,7 @@ import {
 } from "@/lib/vagas";
 
 export const metadata: Metadata = metadadosDaPagina({
-  titulo: "Vagas em negócios do bem",
+  titulo: "Vagas em negócios locais",
   descricao:
     "Vagas, estágios, freelas e bicos em negócios do diretório. Toda vaga mostra o valor, tem contratação dentro da lei e seleção sem discriminação.",
   caminho: "/vagas",
@@ -30,8 +30,8 @@ export const metadata: Metadata = metadadosDaPagina({
 export default function Vagas(props: PageProps<"/vagas">) {
   return (
     <div className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 sm:pt-12">
-      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Trabalho do bem</p>
-      <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">Vagas em negócios do bem</h1>
+      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Trabalho local</p>
+      <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">Vagas em negócios locais</h1>
       <p className="mt-3 max-w-2xl text-suave">
         Toda vaga mostra o valor, tem contratação dentro da lei e seleção sem discriminação. Você se candidata aqui mesmo, e seus dados vão só
         para a empresa da vaga.

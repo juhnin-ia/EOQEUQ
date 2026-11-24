@@ -118,7 +118,7 @@ export function alternar(valores: string[], valor: string): string[] {
 }
 
 // --- Páginas de cidade, causa e tipo ------------------------------------------
-// Páginas fixas para a busca do Google ("negócios do bem em Salvador"). O
+// Páginas fixas para a busca do Google ("negócios locais em Salvador"). O
 // /explorar com filtros tem sempre o mesmo canônico e não entra na busca.
 
 export function hrefCidade(cidade: string, uf: string): string {
@@ -268,7 +268,7 @@ export function tituloDoDiretorio(filtros: FiltrosDiretorio, local: Local | null
   if (filtros.q) titulo = `Resultados para “${filtros.q}”`;
   else if (filtros.tipos.length === 1) titulo = filtros.tipos[0]!;
   else if (filtros.causas.length === 1 && filtros.tipos.length === 0) titulo = buscarCausa(filtros.causas[0]!)?.nome ?? titulo;
-  else if (filtros.tipos.length > 1 || filtros.causas.length > 0 || filtros.verificados) titulo = "Negócios do bem";
+  else if (filtros.tipos.length > 1 || filtros.causas.length > 0 || filtros.verificados) titulo = "Negócios locais";
   if (local) titulo += ` em ${local.cidade && filtros.bairro ? `${filtros.bairro}, ${local.cidade}` : (local.cidade ?? local.rotulo)}`;
   return titulo;
 }

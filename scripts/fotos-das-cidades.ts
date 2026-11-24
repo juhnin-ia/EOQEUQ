@@ -39,7 +39,7 @@ const LISTA = path.join(RAIZ, "src/lib/fotos-das-cidades.json");
 const PASTA = path.join(RAIZ, "public", PASTA_DAS_FOTOS);
 const API = "https://commons.wikimedia.org/w/api.php";
 // A Wikimedia pede um User-Agent que diga quem faz os pedidos.
-const CABECALHOS = { "User-Agent": "NegocioDoBem/1.0 (https://www.negociodobem.com; ola@negociodobem.com)" };
+const CABECALHOS = { "User-Agent": "EraOQueEuQueria/1.0 (https://www.eraoqueeuqueria.com.br; contato@eraoqueeuqueria.com.br)" };
 
 type Escolha = Pick<FotoGravada, "cidade" | "uf" | "arquivo" | "descricao"> & Partial<FotoGravada>;
 

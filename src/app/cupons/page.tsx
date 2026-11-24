@@ -12,12 +12,12 @@ import { db } from "@/lib/db";
 import { condicaoDeOfertaPublica, rotuloDoDesconto, rotuloOndeVale } from "@/lib/ofertas";
 import { FORA_DA_BUSCA } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Cupons do bem", robots: FORA_DA_BUSCA };
+export const metadata: Metadata = { title: "Cupons do clube", robots: FORA_DA_BUSCA };
 
 export default function Cupons(props: PageProps<"/cupons">) {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-8 sm:px-6 sm:pt-12">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">Cupons do bem</h1>
+      <h1 className="font-display text-4xl font-semibold tracking-tight">Cupons do clube</h1>
       <Suspense fallback={<div className="mt-8 h-80 animate-pulse rounded-3xl bg-superficie" />}>
         <Conteudo searchParams={props.searchParams} />
       </Suspense>
@@ -62,7 +62,7 @@ async function Conteudo({ searchParams }: Pick<PageProps<"/cupons">, "searchPara
       <AbasCupons ativa="ofertas" ofertas={ofertas.length} meus={validos} />
       <AvisoDaUrl codigo={aviso} />
       <p className="text-suave">
-        Ofertas de negócios do Clube do Bem. Gere o cupom e mostre o código na hora da compra. O Negócio do Bem nunca pede Pix nem pagamento para liberar cupom.{" "}
+        Ofertas de negócios do Clube de Vantagens. Gere o cupom e mostre o código na hora da compra. O Era o que eu queria nunca pede Pix nem pagamento para liberar cupom.{" "}
         <Link href="/clube-do-bem#para-quem-compra" className="link">
           Como funciona
         </Link>
@@ -90,7 +90,7 @@ async function Conteudo({ searchParams }: Pick<PageProps<"/cupons">, "searchPara
         <div className="cartao p-8 text-center">
           <p className="font-display text-2xl">Nenhuma oferta valendo agora</p>
           <p className="mx-auto mt-2 max-w-md text-suave">
-            Os negócios do Clube do Bem criam ofertas por poucos dias. Enquanto isso, descubra negócios que fazem o bem.
+            Os negócios do Clube de Vantagens criam ofertas por poucos dias. Enquanto isso, descubra negócios do seu bairro.
           </p>
           <Link href="/explorar" className="botao-coral mt-6">
             Explorar o diretório

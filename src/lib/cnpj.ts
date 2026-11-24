@@ -89,7 +89,7 @@ const consultarCnpjNormalizado = cache(unstable_cache(
  * Consulta pública na BrasilAPI, para a moderação conferir o nome registrado e os sócios.
  * Normaliza antes de compartilhar. Converte falhas fora do cache persistente para permitir nova tentativa.
  * Retorna null se a consulta falhar. Na reivindicação é só um apoio e nunca bloqueia a
- * análise; na liberação para o Clube do Bem, sem a consulta não há liberação.
+ * análise; na liberação para o Clube de Vantagens, sem a consulta não há liberação.
  */
 export async function consultarCnpj(valor: string): Promise<DadosCnpj | null> {
   const cnpj = limparCnpj(valor);

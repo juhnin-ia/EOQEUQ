@@ -14,7 +14,7 @@ async function criarNegocio(username: string, extra: { moderacao?: string; ocult
     data: {
       instagramUsername: username,
       nome: `Negócio ${username}`,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Café e padaria",
       cidade: "Recife",
       uf: "PE",

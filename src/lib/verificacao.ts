@@ -10,9 +10,9 @@ export const INCLUIR_VERIFICACAO = {
 } satisfies Prisma.EmpresaInclude;
 
 /**
- * Perfil verificado (#293): um dono que ainda é dono foi liberado no Clube do Bem pela
+ * Perfil verificado (#293): um dono que ainda é dono foi liberado no Clube de Vantagens pela
  * moderação, que conferiu o CNPJ, o nome e o CPF. A mesma pessoa é o "Parceiro do Clube
- * do Bem" na página do perfil. Sem esses dados, o perfil não conta como verificado.
+ * de Vantagens" na página do perfil. Sem esses dados, o perfil não conta como verificado.
  */
 export function perfilVerificado(empresa: {
   membros?: { usuarioId: string }[];

@@ -8,7 +8,7 @@ import { metadadosDaPagina } from "@/lib/seo";
 
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Como funciona",
-  descricao: "O que é o Negócio do Bem, como os donos assumem seus perfis e como cuidamos da privacidade.",
+  descricao: "O que é o Era o que eu queria, como os donos assumem seus perfis e como cuidamos da privacidade.",
   caminho: "/sobre",
 });
 
@@ -22,9 +22,9 @@ export default function Sobre() {
 
       <div className="historia mt-8">
         <p>
-          O Negócio do Bem nasceu para dar visibilidade a quem cuida das pessoas, da comunidade e do planeta. Quando
+          O Era o que eu queria nasceu para dar visibilidade a quem cuida das pessoas, da comunidade e do planeta. Quando
           negócios são atacados por defenderem o respeito e a dignidade, a melhor resposta é coletiva: encontrar,
-          indicar e fortalecer quem faz o bem.
+          indicar e fortalecer quem está perto de você.
         </p>
         <p>
           Aqui não existe ranking nem anúncio pago. Existe a comunidade dizendo &ldquo;esse lugar faz diferença&rdquo; e os
@@ -34,7 +34,7 @@ export default function Sobre() {
         <h2>Como funciona</h2>
         <ol>
           <li>
-            <strong>Alguém indica</strong> um negócio pelo @ do Instagram e conta por que ele faz o bem. O perfil entra no
+            <strong>Alguém indica</strong> um negócio pelo @ do Instagram e conta por que ele faz diferença no bairro. O perfil entra no
             ar na hora, e a moderação tira do ar o que for spam ou perfil falso.
           </li>
           <li>
@@ -64,7 +64,7 @@ export default function Sobre() {
           moderação, e todas as decisões ficam registradas.
         </p>
         <p>
-          Negócios com CNPJ também podem oferecer cupons de desconto no <strong>Clube do Bem</strong>, de graça.{" "}
+          Negócios com CNPJ também podem oferecer cupons de desconto no <strong>Clube de Vantagens</strong>, de graça.{" "}
           <Link href="/clube-do-bem">Veja como funciona</Link>.
         </p>
 
@@ -120,7 +120,7 @@ export default function Sobre() {
           Código aberto
         </h2>
         <p>
-          O Negócio do Bem é um projeto de código aberto, com licença MIT. Todo o código está no{" "}
+          O Era o que eu queria é um projeto de código aberto, com licença MIT. Todo o código está no{" "}
           <a href={REPOSITORIO} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>

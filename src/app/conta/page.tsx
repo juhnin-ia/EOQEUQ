@@ -72,7 +72,7 @@ async function Conteudo() {
         </li>
         <ItemDeLista href="/instalacao" icone={ICONES_DE_LISTA.baixar} titulo="Instalar o app" detalhe="Passo a passo para a tela de início" />
         <ItemDeLista href="/sobre" icone={ICONES_DE_LISTA.ajuda} titulo="Como funciona" />
-        <ItemDeLista href="/clube-do-bem" icone={ICONES_DE_LISTA.cupom} titulo="Clube do Bem" />
+        <ItemDeLista href="/clube-do-bem" icone={ICONES_DE_LISTA.cupom} titulo="Clube de Vantagens" />
       </ul>
 
       {usuario && (

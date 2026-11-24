@@ -39,7 +39,7 @@ fi
 if [ "$DEPLOY_ENV" = "production" ]; then
   case "$APP_URL" in
     "" | *localhost* | *127.0.0.1*)
-      echo "Falta o APP_URL de produção (ex.: https://www.negociodobem.com) nas variáveis de build." >&2
+      echo "Falta o APP_URL de produção (ex.: https://www.eraoqueeuqueria.com.br) nas variáveis de build." >&2
       exit 1
       ;;
   esac

@@ -12,7 +12,7 @@ import { embaixadoresDaCidade, embaixadoresNoSite } from "@/lib/embaixadores";
 import { fotoDaCidade } from "@/lib/fotos-das-cidades";
 import { jsonLdDaVitrine, metadadosDaPagina, type Migalha } from "@/lib/seo";
 
-// "Negócios do bem em Salvador, BA": a página que responde a quem busca pela cidade.
+// "Negócios locais em Salvador, BA": a página que responde a quem busca pela cidade.
 // Só existe para cidades com negócios no diretório; as outras mostram "Não encontramos esta página".
 // As cidades de fotos-das-cidades.json levam a foto no topo e têm a prévia do link
 // pronta de antemão, em JPEG. As outras usam o opengraph-image.tsx desta pasta.
@@ -24,8 +24,8 @@ function textos(cidade: CidadeComNegocios) {
   return {
     onde,
     caminho,
-    titulo: `Negócios do bem em ${onde}`,
-    descricao: `${quantos} do bem em ${onde}: negócios com consciência social e raízes na comunidade, indicados por quem é cliente. Veja tipos, causas, contatos e depoimentos.`,
+    titulo: `Negócios locais em ${onde}`,
+    descricao: `${quantos} em ${onde}: negócios com consciência social e raízes na comunidade, indicados por quem é cliente. Veja tipos, causas, contatos e depoimentos.`,
     migalhas: [
       { nome: "Início", caminho: "/" },
       { nome: "Cidades", caminho: "/cidades" },
@@ -44,7 +44,7 @@ export async function generateMetadata(props: PageProps<"/cidades/[cidade]">): P
     descricao,
     caminho,
     imagemPropria: true,
-    previa: foto ? { url: foto.previa, alt: `${foto.alt}, com o texto "Negócios do bem em ${onde}"` } : undefined,
+    previa: foto ? { url: foto.previa, alt: `${foto.alt}, com o texto "Negócios locais em ${onde}"` } : undefined,
   });
 }
 

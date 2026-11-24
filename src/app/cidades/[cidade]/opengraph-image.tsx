@@ -3,12 +3,12 @@ import { FONTES, ImagemDoSite, TAMANHO } from "@/lib/compartilhamento";
 import { cidadeDoSlug } from "@/lib/consultas";
 import { PreviaDaCidade } from "@/lib/previa-da-cidade";
 
-// Prévia do link de uma cidade sem foto: "Negócios do bem em Araraquara, SP" e
+// Prévia do link de uma cidade sem foto: "Negócios locais em Araraquara, SP" e
 // quantos negócios há, no creme da marca. A cidade com foto não usa esta imagem:
 // a página aponta para a prévia em JPEG feita pelo npm run cidades:fotos, porque
 // a foto num PNG passa de 1 MB, e o WhatsApp não mostra prévia acima de 600 KB.
 // Endereço sem cidade no diretório leva a imagem geral do site.
-export const alt = "Negócios do bem de uma cidade, no Negócio do Bem";
+export const alt = "Negócios locais de uma cidade, no Era o que eu queria";
 export const size = TAMANHO;
 export const contentType = "image/png";
 

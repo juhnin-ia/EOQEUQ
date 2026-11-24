@@ -10,7 +10,7 @@ import { texto, valoresDoFormulario, type EstadoFormulario } from "@/lib/formula
 import { lerId } from "@/lib/moderacao/filtros";
 import { ErroFotoDescartada, OPCOES_TRANSACAO_FOTOS, validarReferenciasFotos } from "@/lib/publicacao-fotos";
 
-// Cadastro dos embaixadores do bem, só pela moderação (aba Embaixadores).
+// Cadastro dos embaixadores locais, só pela moderação (aba Embaixadores).
 
 function violouUnicidade(erro: unknown): boolean {
   return typeof erro === "object" && erro !== null && "code" in erro && erro.code === "P2002";

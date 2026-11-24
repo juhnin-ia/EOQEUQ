@@ -6,7 +6,7 @@ import { EscolhaDoAparelho } from "./EscolhaDoAparelho";
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Instale o app",
   descricao:
-    "Instale o Negócio do Bem no seu celular, no iPhone ou no Android. É de graça, leva menos de um minuto e não precisa de loja de aplicativos.",
+    "Instale o Era o que eu queria no seu celular, no iPhone ou no Android. É de graça, leva menos de um minuto e não precisa de loja de aplicativos.",
   caminho: "/instalacao",
 });
 

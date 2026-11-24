@@ -11,7 +11,7 @@ async function limparBanco() {
 const dadosDaEmpresa = (instagramUsername: string) => ({
   instagramUsername,
   nome: "Padaria Flor",
-  resumo: "Um negócio do bem",
+  resumo: "Um negócio local",
   categoria: "Café e padaria",
   cidade: "Recife",
   uf: "PE",
@@ -95,7 +95,7 @@ describe("trocar o @ do Instagram", () => {
     expect(await enderecoAtual("doceria-da-ana-recife")).toBe("doceriadaana");
   });
 
-  it("a troca pelo dono suspende o Clube do Bem; pela moderação, não", async () => {
+  it("a troca pelo dono suspende o Clube de Vantagens; pela moderação, não", async () => {
     await trocar("padaria.flor", "florpadaria", true);
     expect((await db.liberacaoClube.findFirstOrThrow()).status).toBe("liberada");
     expect(await db.registroAuditoria.count({ where: { acao: "empresa.arroba_trocado_pela_moderacao" } })).toBe(1);

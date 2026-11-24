@@ -433,7 +433,7 @@ export async function cancelar(reivindicacaoId: string, usuarioId: string): Prom
 // Tirar um dono
 // ---------------------------------------------------------------------------
 
-/** O motivo que a liberação do Clube do Bem recebe quando a pessoa deixa de ser dona. */
+/** O motivo que a liberação do Clube de Vantagens recebe quando a pessoa deixa de ser dona. */
 export const MOTIVO_CLUBE_SEM_DONO = "Deixou de ser dono do negócio";
 
 export type ResultadoRemocao =
@@ -445,7 +445,7 @@ export type ResultadoRemocao =
  * e-mail. Tudo numa transação:
  * - o pedido aprovado dela vira "revogada", com o motivo. Um pedido novo dela para este
  *   negócio vai para a moderação, sem a aprovação na hora;
- * - a liberação do Clube do Bem fica suspensa (ou, em análise, recusada), e as ofertas
+ * - a liberação do Clube de Vantagens fica suspensa (ou, em análise, recusada), e as ofertas
  *   que ela criou e ainda estavam valendo saem do ar;
  * - sem nenhum dono, o perfil volta a `indicada` e a ficar visível (`oculta: false`): some o
  *   selo "Perfil assumido" e volta o botão "Sou o dono".

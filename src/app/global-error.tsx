@@ -17,10 +17,10 @@ export default function ErroGeral({ error, retry }: { error: unknown; retry: () 
     <html lang="pt-BR" className="h-full" data-tema="claro" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: SCRIPT_TEMA }} />
-        <title>Negócio do Bem</title>
+        <title>Era o que eu queria</title>
       </head>
       <body className="flex min-h-full flex-col items-center px-4 pt-24 text-center">
-        <Link href="/" aria-label="Negócio do Bem — início">
+        <Link href="/" aria-label="Era o que eu queria — início">
           <Logo className="h-12" />
         </Link>
         <h1 className="mt-10 font-display text-3xl font-semibold">O site não abriu agora</h1>

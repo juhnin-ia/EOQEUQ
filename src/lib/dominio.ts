@@ -118,13 +118,13 @@ export const ACOES_AUDITORIA: Record<string, string> = {
   "embaixador.foto_trocada": "Trocou a foto de um embaixador",
   "embaixador.foto_removida": "Removeu a foto de um embaixador",
   "embaixador.foto_do_instagram": "Colocou a foto do Instagram num embaixador",
-  "clube.pedido": "Pediu a verificação para o Clube do Bem",
-  "clube.documento_visto": "Abriu o documento de um pedido do Clube do Bem",
-  "clube.liberado": "Liberou um dono para o Clube do Bem",
-  "clube.recusado": "Recusou um pedido do Clube do Bem",
-  "clube.suspenso": "Suspendeu um dono do Clube do Bem",
-  "oferta.criada": "Criou uma oferta do Clube do Bem",
-  "oferta.encerrada": "Encerrou uma oferta do Clube do Bem",
+  "clube.pedido": "Pediu a verificação para o Clube de Vantagens",
+  "clube.documento_visto": "Abriu o documento de um pedido do Clube de Vantagens",
+  "clube.liberado": "Liberou um dono para o Clube de Vantagens",
+  "clube.recusado": "Recusou um pedido do Clube de Vantagens",
+  "clube.suspenso": "Suspendeu um dono do Clube de Vantagens",
+  "oferta.criada": "Criou uma oferta do Clube de Vantagens",
+  "oferta.encerrada": "Encerrou uma oferta do Clube de Vantagens",
   "talento.criado": "Entrou no banco de talentos",
   "talento.apagado": "Apagou o próprio perfil de talento",
   "talento.suspenso": "Tirou um perfil do banco de talentos",
@@ -133,10 +133,10 @@ export const ACOES_AUDITORIA: Record<string, string> = {
 };
 
 /** A caixa de e-mail do projeto, para quem quer falar com a equipe (ex.: ser embaixador). */
-export const EMAIL_DO_PROJETO = "ola@negociodobem.com";
+export const EMAIL_DO_PROJETO = "contato@eraoqueeuqueria.com.br";
 
 /** O domínio público da produção, o mesmo da rota do wrangler.jsonc. */
-export const DOMINIO_OFICIAL = "https://www.negociodobem.com";
+export const DOMINIO_OFICIAL = "https://www.eraoqueeuqueria.com.br";
 
 /** Onde fica o código aberto do projeto. */
 export const REPOSITORIO = "https://github.com/fabs-reis/Negocio-do-bem";

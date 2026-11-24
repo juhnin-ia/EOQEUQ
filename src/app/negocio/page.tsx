@@ -95,7 +95,7 @@ async function Conteudo({ searchParams }: Pick<PageProps<"/negocio">, "searchPar
         </div>
       ) : (
         <div className="cartao space-y-3 border-coral/40 p-5">
-          <p className="font-display text-xl font-semibold">🎟️ Seja Parceiro do Clube do Bem</p>
+          <p className="font-display text-xl font-semibold">🎟️ Seja Parceiro do Clube de Vantagens</p>
           <p className="text-sm text-suave">Com o negócio verificado, você cria ofertas e valida cupons por aqui.</p>
           <Link href={`${painel}/clube#verificar`} className="botao-coral">
             Verificar meu negócio

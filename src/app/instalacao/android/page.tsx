@@ -7,7 +7,7 @@ import { CabecaDoTutorial, IconeDoApp, IconeTresPontos, Passo, Passos } from "..
 
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Instale o app no Android",
-  descricao: "Passo a passo para instalar o Negócio do Bem no celular Android, pelo Chrome.",
+  descricao: "Passo a passo para instalar o Era o que eu queria no celular Android, pelo Chrome.",
   caminho: "/instalacao/android",
 });
 
@@ -23,7 +23,7 @@ export default function InstalacaoAndroid() {
       <Passos>
         <Passo numero={1} titulo="Abra o site no Chrome">
           <p>
-            Abra <strong className="text-tinta">www.negociodobem.com</strong> no Chrome. Se você está lendo isto no Chrome do
+            Abra <strong className="text-tinta">www.eraoqueeuqueria.com.br</strong> no Chrome. Se você está lendo isto no Chrome do
             celular, este passo já está feito.
           </p>
         </Passo>

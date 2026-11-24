@@ -1,4 +1,4 @@
-// Service worker do Negócio do Bem, escrito à mão e sem biblioteca. Registrado
+// Service worker do Era o que eu queria, escrito à mão e sem biblioteca. Registrado
 // por RegistrarServiceWorker (só em produção). Veja "Mudar ou desligar o
 // service worker" em docs/como-foi-feito.md.
 //

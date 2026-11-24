@@ -20,7 +20,7 @@ export type EmpresaResumo = {
   status: string;
   causas: { causa: string }[];
   _count: { depoimentos: number };
-  // A oferta do Clube do Bem que está valendo, se houver (o selo de cupom).
+  // A oferta do Clube de Vantagens que está valendo, se houver (o selo de cupom).
   ofertas?: { id: string }[];
   // Para o selo "Perfil verificado" (INCLUIR_VERIFICACAO). Sem eles, o card não mostra o selo.
   membros?: { usuarioId: string }[];

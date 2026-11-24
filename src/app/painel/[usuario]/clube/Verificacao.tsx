@@ -39,7 +39,7 @@ export function Verificacao({
   return (
     <section id="verificar" className="cartao scroll-mt-24 space-y-4 border-coral/40 p-6 text-sm leading-relaxed">
       <div className="space-y-2">
-        <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">🎟️ Clube do Bem</p>
+        <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">🎟️ Clube de Vantagens</p>
         <h2 className="font-display text-2xl font-semibold">Verifique o seu negócio para criar ofertas</h2>
         {(recusada || suspensa) && liberacao && (
           <p className="rounded-2xl bg-coral-50 p-3 text-coral-700">

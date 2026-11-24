@@ -7,9 +7,9 @@ import { DIAS_MAXIMOS } from "@/lib/ofertas";
 import { metadadosDaPagina } from "@/lib/seo";
 
 export const metadata: Metadata = metadadosDaPagina({
-  titulo: "Clube do Bem: como funcionam os cupons",
+  titulo: "Clube de Vantagens: como funcionam os cupons",
   descricao:
-    "Passo a passo do Clube do Bem: como gerar e usar um cupom de desconto e como o dono cria a oferta e confere o cupom no balcão. De graça, com negócios verificados.",
+    "Passo a passo do Clube de Vantagens: como gerar e usar um cupom de desconto e como o dono cria a oferta e confere o cupom no balcão. De graça, com negócios verificados.",
   caminho: "/clube-do-bem",
 });
 
@@ -93,7 +93,7 @@ const PROTECOES = [
 const DUVIDAS = [
   {
     pergunta: "Quanto custa?",
-    resposta: "Nada. O Clube do Bem é de graça para quem compra e para quem tem negócio.",
+    resposta: "Nada. O Clube de Vantagens é de graça para quem compra e para quem tem negócio.",
   },
   {
     pergunta: "Preciso de conta para usar um cupom?",
@@ -132,12 +132,12 @@ const DUVIDAS = [
 export default function ClubeDoBem() {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-14 sm:px-6">
-      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">🎟️ Clube do Bem</p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">🎟️ Clube de Vantagens</p>
       <h1 className="mt-2 font-display text-5xl leading-tight font-semibold tracking-tight text-balance">
-        Cupons de quem faz o bem
+        Cupons de quem está perto
       </h1>
       <p className="mt-3 text-lg leading-relaxed text-suave">
-        Negócios verificados oferecem descontos por poucos dias para quem chega pelo Negócio do Bem. É de graça, para quem
+        Negócios verificados oferecem descontos por poucos dias para quem chega pelo Era o que eu queria. É de graça, para quem
         compra e para quem vende.
       </p>
 
@@ -161,7 +161,7 @@ export default function ClubeDoBem() {
           Como usar um cupom
         </h2>
         <p className="mt-3 leading-relaxed text-suave">
-          Você só precisa de uma conta no Negócio do Bem.{" "}
+          Você só precisa de uma conta no Era o que eu queria.{" "}
           <Link href="/entrar" className="link">
             Entre ou crie a sua
           </Link>
@@ -176,12 +176,12 @@ export default function ClubeDoBem() {
             </p>
             <Print nome="cliente-1-selo-no-diretorio" alt="Cartão da Padaria Florescer no Explorar, com o selo Cupom" />
             <p className="pt-3">
-              No perfil do negócio, a oferta aparece no cartão <Destaque>Clube do Bem</Destaque>: o desconto, onde ele vale,
+              No perfil do negócio, a oferta aparece no cartão <Destaque>Clube de Vantagens</Destaque>: o desconto, onde ele vale,
               quanto tempo falta e quantos cupons restam.
             </p>
             <Print
               nome="cliente-2-cartao-do-clube"
-              alt="Cartão do Clube do Bem no perfil, com a oferta de 15% no pão de fermentação natural e o botão Entre para gerar o cupom"
+              alt="Cartão do Clube de Vantagens no perfil, com a oferta de 15% no pão de fermentação natural e o botão Entre para gerar o cupom"
             />
           </Passo>
 
@@ -220,7 +220,7 @@ export default function ClubeDoBem() {
           <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
             <li>O cupom vale uma vez só, até o último dia da oferta.</li>
             <li>Algumas ofertas têm limite de cupons: quando acabam, acabou.</li>
-            <li>Quem garante o desconto é o negócio. O Negócio do Bem nunca pede Pix nem pagamento para liberar cupom.</li>
+            <li>Quem garante o desconto é o negócio. O Era o que eu queria nunca pede Pix nem pagamento para liberar cupom.</li>
             <li>Na hora de conferir, o negócio vê só o seu primeiro nome.</li>
           </ul>
         </div>
@@ -245,7 +245,7 @@ export default function ClubeDoBem() {
               </Link>
               . Depois, no painel do negócio, toque em <Destaque>Verificar meu negócio</Destaque>.
             </p>
-            <Print nome="dono-0-chamada-no-painel" alt="Caixa do painel: Ofereça cupons no Clube do Bem, com o botão Verificar meu negócio" />
+            <Print nome="dono-0-chamada-no-painel" alt="Caixa do painel: Ofereça cupons no Clube de Vantagens, com o botão Verificar meu negócio" />
             <p className="pt-3">
               Informe o CNPJ e toque em <Destaque>Pedir a verificação</Destaque>. Se você mandou o CNPJ quando assumiu o perfil,
               ele já vem preenchido. Só a moderação vê esse número.
@@ -263,7 +263,7 @@ export default function ClubeDoBem() {
 
           <Passo nivel="h3" numero={2} titulo="Crie a oferta">
             <p>
-              No painel do negócio, toque em <Destaque>Clube do Bem</Destaque> e preencha:
+              No painel do negócio, toque em <Destaque>Clube de Vantagens</Destaque> e preencha:
             </p>
             <ul className="list-disc space-y-1 pl-5">
               <li>
@@ -294,7 +294,7 @@ export default function ClubeDoBem() {
 
           <Passo nivel="h3" numero={3} titulo="A oferta entra no ar">
             <p>
-              Ela aparece no perfil do negócio, com o selo <Destaque>Parceiro do Clube do Bem</Destaque>, e no Explorar, com o
+              Ela aparece no perfil do negócio, com o selo <Destaque>Parceiro do Clube de Vantagens</Destaque>, e no Explorar, com o
               selo <Destaque>Cupom</Destaque>. No painel, você acompanha quantos cupons foram gerados e quantos foram usados.
             </p>
             <Print nome="dono-3-oferta-no-ar" alt="Painel com a oferta valendo agora: 1 cupom gerado de 50, 0 usados" />
@@ -354,7 +354,7 @@ export default function ClubeDoBem() {
         </ul>
         <p className="mt-5 text-sm leading-relaxed text-suave">
           Viu algo estranho? Escreva para{" "}
-          <a href={`mailto:${EMAIL_DO_PROJETO}?subject=Clube do Bem`} className="link">
+          <a href={`mailto:${EMAIL_DO_PROJETO}?subject=Clube de Vantagens`} className="link">
             {EMAIL_DO_PROJETO}
           </a>
           .

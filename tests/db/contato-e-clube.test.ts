@@ -26,7 +26,7 @@ function edicao(whatsapp: string) {
     nome: "Padaria Flor",
     categoria: "Café e padaria",
     municipio: "Recife, PE",
-    resumo: "Um negócio do bem em Recife",
+    resumo: "Um negócio local em Recife",
     historia: "",
     site: "",
     whatsapp,
@@ -58,7 +58,7 @@ beforeEach(async () => {
     data: {
       instagramUsername: "padaria.flor",
       nome: "Padaria Flor",
-      resumo: "Um negócio do bem em Recife",
+      resumo: "Um negócio local em Recife",
       categoria: "Café e padaria",
       cidade: "Recife",
       uf: "PE",
@@ -75,7 +75,7 @@ afterAll(async () => {
   await db.$disconnect();
 });
 
-describe("contato do perfil e Clube do Bem", () => {
+describe("contato do perfil e Clube de Vantagens", () => {
   it("o dono troca o WhatsApp: a liberação e a oferta ficam suspensas, como Sistema na auditoria", async () => {
     await salvar("(81) 91111-2222");
 

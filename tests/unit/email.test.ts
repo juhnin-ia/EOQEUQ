@@ -27,19 +27,19 @@ describe("envioLigado", () => {
     expect(envioLigado()).toBe(false);
     configurar({ RESEND_API_KEY: "re_teste" });
     expect(envioLigado()).toBe(false);
-    configurar({ RESEND_API_KEY: "", EMAIL_REMETENTE: "Negócio do Bem <avisos@exemplo.com>" });
+    configurar({ RESEND_API_KEY: "", EMAIL_REMETENTE: "Era o que eu queria <avisos@exemplo.com>" });
     expect(envioLigado()).toBe(false);
   });
 
   it("liga com a chave e o remetente, no computador e na produção", () => {
-    configurar({ RESEND_API_KEY: "re_teste", EMAIL_REMETENTE: "Negócio do Bem <avisos@exemplo.com>" });
+    configurar({ RESEND_API_KEY: "re_teste", EMAIL_REMETENTE: "Era o que eu queria <avisos@exemplo.com>" });
     expect(envioLigado()).toBe(true);
     configurar({ DEPLOY_ENV: "production" });
     expect(envioLigado()).toBe(true);
   });
 
   it("fica desligado nos previews, mesmo configurado", () => {
-    configurar({ RESEND_API_KEY: "re_teste", EMAIL_REMETENTE: "Negócio do Bem <avisos@exemplo.com>", DEPLOY_ENV: "preview" });
+    configurar({ RESEND_API_KEY: "re_teste", EMAIL_REMETENTE: "Era o que eu queria <avisos@exemplo.com>", DEPLOY_ENV: "preview" });
     expect(envioLigado()).toBe(false);
   });
 });
@@ -53,7 +53,7 @@ describe("enviarEmail", () => {
   it("manda o e-mail para uma pessoa só, com remetente e resposta", async () => {
     configurar({
       RESEND_API_KEY: "re_teste",
-      EMAIL_REMETENTE: "Negócio do Bem <avisos@exemplo.com>",
+      EMAIL_REMETENTE: "Era o que eu queria <avisos@exemplo.com>",
       EMAIL_RESPOSTA: "ola@exemplo.com",
     });
     expect(await enviarEmail(email)).toBe(true);
@@ -63,7 +63,7 @@ describe("enviarEmail", () => {
     expect(url).toBe("https://api.resend.com/emails");
     expect(new Headers(opcoes.headers).get("Authorization")).toBe("Bearer re_teste");
     expect(JSON.parse(opcoes.body as string)).toEqual({
-      from: "Negócio do Bem <avisos@exemplo.com>",
+      from: "Era o que eu queria <avisos@exemplo.com>",
       to: ["dona@exemplo.com"],
       reply_to: "ola@exemplo.com",
       subject: "Assunto",

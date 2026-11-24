@@ -34,7 +34,7 @@ afterAll(async () => { await limpar(); await db.$disconnect(); });
 
 async function empresaComFoto() {
   return db.empresa.create({ data: {
-    instagramUsername: "loja", nome: "Loja", resumo: "Um negócio do bem", categoria: "Serviços", cidade: "Recife", uf: "PE", fotoUrl: antiga,
+    instagramUsername: "loja", nome: "Loja", resumo: "Um negócio local", categoria: "Serviços", cidade: "Recife", uf: "PE", fotoUrl: antiga,
     membros: { create: { usuarioId: contexto.usuarioId, papel: "dono" } },
   } });
 }

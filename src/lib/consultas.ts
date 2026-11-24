@@ -297,7 +297,7 @@ export async function buscarPerfil(username: string) {
       membros: { select: { usuarioId: true } },
       indicadaPor: { select: { nome: true } },
       _count: { select: { favoritos: true } },
-      // A oferta ativa mais recente do Clube do Bem (a página confere se o prazo ainda vale: com o
+      // A oferta ativa mais recente do Clube de Vantagens (a página confere se o prazo ainda vale: com o
       // Cache Components, a hora atual só pode ser lida depois da sessão) e quem pode criar
       // ofertas (o selo de parceiro).
       ofertas: { where: { status: "ativa" }, orderBy: { fim: "desc" }, take: 1 },

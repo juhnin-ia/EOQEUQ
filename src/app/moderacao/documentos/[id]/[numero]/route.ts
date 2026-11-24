@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { lerDocumento } from "@/lib/documentos";
 
 /**
- * O documento (RG ou CNH) de um pedido de verificação do Clube do Bem (#293). Só a moderação
+ * O documento (RG ou CNH) de um pedido de verificação do Clube de Vantagens (#293). Só a moderação
  * abre: quem não é responde 404, como o resto da moderação, sem dizer se o documento existe.
  * Cada abertura fica na auditoria. A resposta nunca vai para cache e não aceita ser embutida.
  */

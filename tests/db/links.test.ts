@@ -161,14 +161,14 @@ describe("envio do link", () => {
     await enviarLink(conta, "confirmar", "abc");
 
     expect(enviados()).toHaveLength(1);
-    expect(enviados()[0]).toMatchObject({ para: "ana@exemplo.com", assunto: "Confirme seu e-mail no Negócio do Bem" });
+    expect(enviados()[0]).toMatchObject({ para: "ana@exemplo.com", assunto: "Confirme seu e-mail no Era o que eu queria" });
     expect(enviados()[0]!.texto).toContain(`${ENDERECO_DO_SITE}/api/link?t=abc`);
     expect(enviados()[0]!.texto).toContain("Olá, Ana!");
   });
 
   it("o e-mail de entrar diz quanto tempo o link vale", async () => {
     await enviarLink(await criarConta(), "entrar", "abc");
-    expect(enviados()[0]!.assunto).toBe("Seu link para entrar no Negócio do Bem");
+    expect(enviados()[0]!.assunto).toBe("Seu link para entrar no Era o que eu queria");
     expect(enviados()[0]!.texto).toContain("15 minutos");
   });
 

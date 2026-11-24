@@ -75,7 +75,7 @@ async function Conteudo({ params, searchParams }: Pick<PageProps<"/painel/[usuar
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href={`/painel/${empresa.instagramUsername}/clube`} className="botao-claro botao-pequeno">
-              Clube do Bem
+              Clube de Vantagens
             </Link>
             <Link href={`/painel/${empresa.instagramUsername}/vagas`} className="botao-claro botao-pequeno">
               Vagas
@@ -149,13 +149,13 @@ async function Conteudo({ params, searchParams }: Pick<PageProps<"/painel/[usuar
   );
 }
 
-/** O convite do Clube do Bem para o dono que ainda não foi verificado, ou o pedido em análise. */
+/** O convite do Clube de Vantagens para o dono que ainda não foi verificado, ou o pedido em análise. */
 function ChamadaDoClube({ username, status }: { username: string; status?: string }) {
   if (status === "liberada") return null;
   if (status === "pendente") {
     return (
       <p className="cartao p-4 text-sm text-suave">
-        🎟️ A verificação do seu negócio para o Clube do Bem está em análise. A resposta aparece no{" "}
+        🎟️ A verificação do seu negócio para o Clube de Vantagens está em análise. A resposta aparece no{" "}
         <Link href={`/painel/${username}/clube`} className="link">
           painel do clube
         </Link>
@@ -167,7 +167,7 @@ function ChamadaDoClube({ username, status }: { username: string; status?: strin
   return (
     <div className="cartao flex flex-col gap-4 border-coral/40 p-5 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <p className="font-display text-xl font-semibold">🎟️ Verifique a sua empresa e seja Parceiro do Clube do Bem</p>
+        <p className="font-display text-xl font-semibold">🎟️ Verifique a sua empresa e seja Parceiro do Clube de Vantagens</p>
         <p className="mt-1 text-sm leading-relaxed text-suave">
           {deNovo
             ? "A liberação do seu negócio não está valendo. Veja o motivo e peça a verificação de novo."

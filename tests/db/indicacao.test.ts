@@ -52,7 +52,7 @@ async function indicacoesAnteriores(usuarioId: string, quantas: number, criadoEm
       data: {
         instagramUsername: `antiga.${usuarioId.slice(-8)}.${i}`,
         nome: `Antiga ${i}`,
-        resumo: "Um negócio do bem",
+        resumo: "Um negócio local",
         categoria: "Serviços",
         cidade: "Recife",
         uf: "PE",
@@ -70,7 +70,7 @@ function formulario(instagram: string) {
   dados.set("nome", `Negócio ${instagram}`);
   dados.set("categoria", "Alimentação");
   dados.set("municipio", "Recife, PE");
-  dados.set("resumo", "Um negócio do bem do bairro");
+  dados.set("resumo", "Um negócio local do bairro");
   return dados;
 }
 
@@ -200,7 +200,7 @@ describe("indicação do mesmo username ao mesmo tempo", () => {
 
     expect(publicadas(resultados)).toBe(1);
     for (const r of resultados) {
-      if (!r.publicada) expect(r.estado.erros?.instagram).toMatch(/já está no Negócio do Bem/);
+      if (!r.publicada) expect(r.estado.erros?.instagram).toMatch(/já está no Era o que eu queria/);
     }
     expect(await db.empresa.count({ where: { instagramUsername: "mesmo.username" } })).toBe(1);
   });

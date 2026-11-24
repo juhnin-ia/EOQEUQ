@@ -27,7 +27,7 @@ export async function VisaoGeral() {
     { total: reivindicacoes.pendentes, texto: ["pedido de reivindicação", "pedidos de reivindicação"], href: hrefModeracao("reivindicacoes") },
     { total: negocios.pendentes, texto: ["indicação antiga", "indicações antigas"], href: hrefModeracao("indicacoes") },
     { total: depoimentos.denunciados, texto: ["denúncia aberta", "denúncias abertas"], href: hrefModeracao("denuncias") },
-    { total: pedidosDoClube, texto: ["pedido do Clube do Bem", "pedidos do Clube do Bem"], href: hrefModeracao("clube") },
+    { total: pedidosDoClube, texto: ["pedido do Clube de Vantagens", "pedidos do Clube de Vantagens"], href: hrefModeracao("clube") },
     { total: trocasDeArroba, texto: ["pedido de troca do @", "pedidos de troca do @"], href: hrefModeracao("arroba") },
   ].filter((f) => f.total > 0);
 

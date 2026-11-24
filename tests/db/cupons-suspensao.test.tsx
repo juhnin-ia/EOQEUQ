@@ -77,7 +77,7 @@ beforeEach(async () => {
     data: {
       instagramUsername: "padaria.flor",
       nome: "Padaria Flor",
-      resumo: "Um negócio do bem em Recife",
+      resumo: "Um negócio local em Recife",
       categoria: "Café e padaria",
       cidade: "Recife",
       uf: "PE",
@@ -136,7 +136,7 @@ describe("cupons depois de suspensão do clube ou saída do negócio do ar (#304
           nome: "Padaria Flor",
           categoria: "Café e padaria",
           municipio: "Recife, PE",
-          resumo: "Um negócio do bem em Recife",
+          resumo: "Um negócio local em Recife",
           historia: "",
           site: "",
           whatsapp: "(81) 91111-2222",

@@ -27,7 +27,7 @@ import { FormOferta } from "./FormOferta";
 import { Verificacao } from "./Verificacao";
 import { seguirEnderecoAntigo } from "@/lib/troca-de-arroba";
 
-export const metadata: Metadata = { title: "Clube do Bem", robots: FORA_DA_BUSCA };
+export const metadata: Metadata = { title: "Clube de Vantagens", robots: FORA_DA_BUSCA };
 
 export default function ClubeDoNegocio(props: PageProps<"/painel/[usuario]/clube">) {
   return (
@@ -91,10 +91,10 @@ async function Conteudo({ params, searchParams }: Pick<PageProps<"/painel/[usuar
           ← {empresa.nome}
         </Link>
         <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Clube do Bem</p>
+          <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Clube de Vantagens</p>
           <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">Ofertas e cupons</h1>
           <Link href="/clube-do-bem#para-negocios" className="link mt-2 inline-block text-sm">
-            Como funciona o Clube do Bem
+            Como funciona o Clube de Vantagens
           </Link>
         </div>
         {/* Os avisos da validação aparecem junto do cupom, para onde a página volta. */}

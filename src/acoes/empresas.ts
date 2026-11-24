@@ -149,7 +149,7 @@ export async function indicarEmpresa(_estado: EstadoFormulario, dados: FormData)
   if (instagram) {
     const existente = await db.empresa.findUnique({ where: { instagramUsername: instagram } });
     if (existente) {
-      return { erros: { instagram: `@${instagram} já está no Negócio do Bem.` }, existente: instagram, valores };
+      return { erros: { instagram: `@${instagram} já está no Era o que eu queria.` }, existente: instagram, valores };
     }
   }
   const endereco = instagram ?? (await enderecoParaNegocioSemInstagram(campos.nome, campos.cidade));
@@ -196,7 +196,7 @@ export async function indicarEmpresa(_estado: EstadoFormulario, dados: FormData)
     if (erro instanceof ErroFotoDescartada) return { erros: { site: erro.message }, valores };
     // Outra pessoa cadastrou o mesmo endereço entre a conferência acima e a criação.
     if (erro !== empresaDuplicada) throw erro;
-    if (instagram) return { erros: { instagram: `@${instagram} já está no Negócio do Bem.` }, existente: instagram, valores };
+    if (instagram) return { erros: { instagram: `@${instagram} já está no Era o que eu queria.` }, existente: instagram, valores };
     return { erro: "Não conseguimos cadastrar agora. Tente de novo.", valores };
   }
   if (!empresa) {
@@ -294,7 +294,7 @@ export async function salvarEmpresa(_estado: EstadoFormulario, dados: FormData):
       await tx.empresaCausa.deleteMany({ where: { empresaId: empresa.id } });
       await tx.empresaCausa.createMany({ data: causas.map((causa) => ({ empresaId: empresa.id, causa })) });
       await auditarEdicao(tx, usuario.id, empresa, "empresa.editada", pelaModeracao);
-      // O dono trocou o contato: o Clube do Bem do negócio espera a moderação conferir de novo.
+      // O dono trocou o contato: o Clube de Vantagens do negócio espera a moderação conferir de novo.
       if (!pelaModeracao && contatoMudou(empresa, campos)) await suspenderPorContatoAlterado(tx, empresa);
     }, OPCOES_TRANSACAO_FOTOS);
   } catch (erro) {
@@ -390,7 +390,7 @@ export async function trocarArrobaDaEmpresa(_estado: EstadoFormulario, dados: Fo
     if (!violouUnicidade(erro)) throw erro;
     resultado = "ocupado";
   }
-  if (resultado === "ocupado") return { erros: { instagram: `@${novo} já é de outro negócio no Negócio do Bem.` }, valores };
+  if (resultado === "ocupado") return { erros: { instagram: `@${novo} já é de outro negócio no Era o que eu queria.` }, valores };
   if (resultado === "mesmo") return { erros: { instagram: `@${novo} já é o @ deste negócio.` }, valores };
 
   // Sem foto, a do novo perfil do Instagram vira a foto do negócio (nunca troca uma foto enviada).

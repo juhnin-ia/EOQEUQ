@@ -44,11 +44,11 @@ export default function Inicio() {
       <JsonLd dados={jsonLdDoSite()} />
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-8 sm:px-6 sm:pt-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-14">
         <div className="flex min-w-0 flex-col gap-6">
-          <Suspense fallback={<SeloAoVivo texto="Um movimento do bem, feito pela comunidade" />}>
+          <Suspense fallback={<SeloAoVivo texto="Um guia local, feito pela comunidade" />}>
             <SeloComNumeros />
           </Suspense>
           <h1 className="font-display text-[2.75rem] leading-[0.98] font-bold tracking-[-0.035em] sm:text-7xl">
-            Compre de quem <span className="font-serif text-[1.05em] font-medium tracking-[-0.01em] text-coral italic">faz o bem.</span>
+            Compre de quem <span className="font-serif text-[1.05em] font-medium tracking-[-0.01em] text-coral italic">está perto.</span>
           </h1>
           <p className="max-w-xl text-lg leading-relaxed text-suave sm:text-xl">
             Negócios com consciência social e raízes na comunidade, indicados por quem compra deles.
@@ -125,7 +125,7 @@ function SeloAoVivo({ texto }: { texto: string }) {
 
 async function SeloComNumeros() {
   const resumo = await resumoDoDiretorio();
-  if (resumo.total === 0) return <SeloAoVivo texto="Um movimento do bem, feito pela comunidade" />;
+  if (resumo.total === 0) return <SeloAoVivo texto="Um guia local, feito pela comunidade" />;
   const negocios = `${resumo.total.toLocaleString("pt-BR")} ${resumo.total === 1 ? "negócio" : "negócios"}`;
   const cidades = `${resumo.cidades.toLocaleString("pt-BR")} ${resumo.cidades === 1 ? "cidade" : "cidades"}`;
   return <SeloAoVivo texto={`${negocios} em ${cidades}`} />;
@@ -181,7 +181,7 @@ async function Vitrine() {
 async function Numeros() {
   const resumo = await resumoDoDiretorio();
   const itens = [
-    { valor: resumo.total, rotulo: resumo.total === 1 ? "negócio do bem" : "negócios do bem", contar: true },
+    { valor: resumo.total, rotulo: resumo.total === 1 ? "negócio local" : "negócios locais", contar: true },
     { valor: resumo.cidades, rotulo: resumo.cidades === 1 ? "cidade" : "cidades" },
     { valor: resumo.estados, rotulo: resumo.estados === 1 ? "estado" : "estados" },
     { valor: resumo.verificados, rotulo: "perfis assumidos pelos donos" },
@@ -337,7 +337,7 @@ async function CidadesComMaisNegocios() {
 
 function ComoFunciona() {
   const passos = [
-    { titulo: "A comunidade indica", texto: "Qualquer pessoa indica um negócio pelo @ do Instagram e conta por que ele faz o bem." },
+    { titulo: "A comunidade indica", texto: "Qualquer pessoa indica um negócio pelo @ do Instagram e conta por que ele faz diferença no bairro." },
     { titulo: "O dono assume o perfil", texto: "Quem cuida do negócio envia CNPJ, site e contato e passa a contar a própria história." },
     { titulo: "Todo mundo fortalece", texto: "Clientes deixam depoimentos, escolhem pelas causas que importam e espalham a palavra." },
   ];
@@ -362,7 +362,7 @@ function ComoFunciona() {
       <section className="mx-auto mt-12 max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col items-start justify-between gap-6 rounded-[1.75rem] bg-tinta px-6 py-10 text-papel sm:flex-row sm:items-center sm:px-12 escuro:bg-superficie escuro:text-tinta escuro:ring-1 escuro:ring-linha">
           <div>
-            <h2 className="font-display text-3xl font-semibold tracking-tight">Tem um negócio do bem?</h2>
+            <h2 className="font-display text-3xl font-semibold tracking-tight">Tem um negócio local?</h2>
             <p className="mt-2 text-papel/70 escuro:text-suave">Cadastre, mostre as causas que você abraça e conte a sua história.</p>
           </div>
           <Link href="/sobre#dono" className="botao-coral shrink-0 px-6 py-3.5 text-base">

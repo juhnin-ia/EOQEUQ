@@ -14,7 +14,7 @@ import { arquivoDaFoto, buscarPreviaDoInstagram, configPrevia } from "@/lib/prev
 import { OPCOES_TRANSACAO_FOTOS, validarReferenciasFotos } from "@/lib/publicacao-fotos";
 import { normalizarTexto } from "@/lib/texto";
 
-// Embaixadores do bem (#250): quem leva o projeto para uma cidade ou um estado
+// Embaixadores locais (#250): quem leva o projeto para uma cidade ou um estado
 // inteiro. A moderação cadastra; o site mostra na página inicial, em /embaixadores,
 // na página da cidade e na página de cada um (/embaixadores/<@>, #259). Os
 // seguidores, a foto e a primeira versão do "Sobre" vêm da API oficial da Meta, a
@@ -45,10 +45,10 @@ export function tituloNaCidade({ titulo, cidade }: { titulo: string; cidade: str
   return cidade ? `${nome} em ${cidade}` : `${nome} de todo o estado`;
 }
 
-/** "Embaixadora do bem · Curitiba, PR": o rótulo da página do embaixador. */
+/** "Embaixadora local · Curitiba, PR": o rótulo da página do embaixador. */
 export function tituloComLugar(embaixador: { titulo: string } & Lugar): string {
   const nome = TITULOS_EMBAIXADOR[embaixador.titulo as TituloEmbaixador] ?? TITULOS_EMBAIXADOR.embaixadora;
-  return `${nome} do bem · ${lugarDoEmbaixador(embaixador)}`;
+  return `${nome} local · ${lugarDoEmbaixador(embaixador)}`;
 }
 
 /** A página do embaixador, pelo @: o link para divulgar no Instagram. */
@@ -73,7 +73,7 @@ export function destinoDoEmbaixador({ cidade, uf }: Lugar, cidades: CidadeComNeg
   if (total === 0) return { href: "/participar", detalhe: "Indique o primeiro negócio" };
   const negocios = `${total} ${total === 1 ? "negócio" : "negócios"}`;
   return daCidade
-    ? { href: hrefCidade(daCidade.cidade, uf), detalhe: `${negocios} do bem` }
+    ? { href: hrefCidade(daCidade.cidade, uf), detalhe: total === 1 ? "1 negócio local" : `${total} negócios locais` }
     : { href: hrefDiretorio({ onde: rotuloEstado(uf as Uf) }), detalhe: `${negocios} no estado` };
 }
 

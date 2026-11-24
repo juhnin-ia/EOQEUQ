@@ -9,7 +9,7 @@ import { DocumentosDoPedido } from "../../DocumentosDoPedido";
 import { FichaDaReceita, type NegocioDaFicha } from "../../FichaDaReceita";
 
 /**
- * O Clube do Bem na ficha do negócio, só para a moderação: a liberação de cada dono e a
+ * O Clube de Vantagens na ficha do negócio, só para a moderação: a liberação de cada dono e a
  * consulta do CNPJ na Receita, com os sócios. A consulta vem do `?cnpj=` da página e nada
  * dela é guardado: só o CNPJ, quando a moderação libera.
  */
@@ -31,7 +31,7 @@ export async function Clube({ empresa, cnpjDaUrl, aviso }: { empresa: NegocioDaF
   return (
     <section id="clube" className="scroll-mt-24 space-y-4">
       <div>
-        <h2 className="font-display text-2xl font-semibold">Clube do Bem</h2>
+        <h2 className="font-display text-2xl font-semibold">Clube de Vantagens</h2>
         <p className="mt-1 text-sm leading-relaxed text-suave">
           Só negócio com CNPJ ativo na Receita (o MEI também tem CNPJ). Confira a ficha e se o nome da conta bate com um dos
           sócios. Cada dono precisa da própria liberação para criar ofertas.

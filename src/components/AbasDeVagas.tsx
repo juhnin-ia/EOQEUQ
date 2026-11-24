@@ -7,7 +7,7 @@ export function AbasDeVagas({ ativa }: { ativa: "vagas" | "talentos" }) {
     { id: "talentos", rotulo: "Banco de talentos", href: "/vagas/talentos" },
   ] as const;
   return (
-    <nav aria-label="Trabalho do bem" className="mt-6 flex self-start rounded-full bg-areia p-1 sm:inline-flex">
+    <nav aria-label="Trabalho local" className="mt-6 flex self-start rounded-full bg-areia p-1 sm:inline-flex">
       {abas.map((aba) => (
         <Link
           key={aba.id}

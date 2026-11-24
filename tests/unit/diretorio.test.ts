@@ -160,7 +160,7 @@ describe("tituloDoDiretorio", () => {
     expect(tituloDoDiretorio({ ...SEM_FILTROS, tipos: ["Pet"] }, { cidade: "Recife", uf: "PE", rotulo: "Recife, PE" })).toBe("Pet em Recife");
     expect(tituloDoDiretorio({ ...SEM_FILTROS, q: "brechó" }, { uf: "PE", rotulo: "Pernambuco" })).toBe("Resultados para “brechó” em Pernambuco");
     expect(tituloDoDiretorio({ ...SEM_FILTROS, causas: ["acessivel"] }, null)).toBe("Acessível");
-    expect(tituloDoDiretorio({ ...SEM_FILTROS, tipos: ["Pet", "Saúde"] }, null)).toBe("Negócios do bem");
+    expect(tituloDoDiretorio({ ...SEM_FILTROS, tipos: ["Pet", "Saúde"] }, null)).toBe("Negócios locais");
   });
 });
 

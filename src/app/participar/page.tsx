@@ -20,7 +20,7 @@ import { CadastroPorEtapas } from "./CadastroPorEtapas";
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Cadastrar negócio",
   descricao:
-    "Tem ou conhece um negócio que cuida das pessoas, da comunidade ou do planeta? Comece pelo @ do Instagram, ou cadastre sem Instagram, no Negócio do Bem. É de graça.",
+    "Tem ou conhece um negócio que cuida das pessoas, da comunidade ou do planeta? Comece pelo @ do Instagram, ou cadastre sem Instagram, no Era o que eu queria. É de graça.",
   caminho: "/participar",
 });
 
@@ -73,13 +73,13 @@ export default function Participar(props: PageProps<"/participar">) {
         <div className="flex min-w-0 flex-[999_1_28rem] flex-col justify-center">
           <p className="inline-flex items-center gap-2 self-start rounded-full border border-coral/20 bg-superficie/70 px-4 py-1.5 text-sm font-medium text-coral-700">
             <span aria-hidden="true">🌱</span>
-            <span>Para quem tem ou conhece um negócio do bem</span>
+            <span>Para quem tem ou conhece um negócio local</span>
           </p>
           <h1 className="mt-5 font-display text-5xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl">
             Que bom que você chegou.
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-suave text-pretty sm:text-xl">
-            Se o negócio cuida das pessoas, da comunidade ou do planeta, ele já é do bem. Comece pelo @ do Instagram: leva
+            Se o negócio cuida das pessoas, da comunidade ou do planeta, ele já merece estar aqui. Comece pelo @ do Instagram: leva
             poucos minutos. Não tem Instagram? Também dá.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function Participar(props: PageProps<"/participar">) {
 
       <section className="mt-16 rounded-3xl bg-tinta px-6 py-10 text-papel sm:px-10">
         <p className="max-w-2xl font-display text-2xl leading-snug text-balance sm:text-3xl">
-          Comprar de quem faz o bem muda o bairro, a cidade e o país. Com você aqui, isso fica mais forte.
+          Comprar de quem está perto muda o bairro, a cidade e o país. Com você aqui, isso fica mais forte.
         </p>
         {/* Link comum, e não o Link do Next: o navegador leva o foco ao campo do @. */}
         <a href="#instagram" className="botao-coral mt-6 px-6 py-3 text-base">

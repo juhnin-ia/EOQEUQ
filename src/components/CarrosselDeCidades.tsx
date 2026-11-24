@@ -62,7 +62,7 @@ export function CarrosselDeCidades({ cidades }: { cidades: SlideDeCidade[] }) {
               key={cidade.href}
               href={cidade.href}
               aria-roledescription="slide"
-              aria-label={`${cidade.cidade}, ${cidade.uf}: ${cidade.total.toLocaleString("pt-BR")} ${cidade.total === 1 ? "negócio do bem" : "negócios do bem"} (${i + 1} de ${cidades.length})`}
+              aria-label={`${cidade.cidade}, ${cidade.uf}: ${cidade.total.toLocaleString("pt-BR")} ${cidade.total === 1 ? "negócio local" : "negócios locais"} (${i + 1} de ${cidades.length})`}
               inert={!ativa}
               className={`group absolute inset-0 block transition-opacity duration-700 ${ativa ? "opacity-100" : "opacity-0"}`}
             >
@@ -82,7 +82,7 @@ export function CarrosselDeCidades({ cidades }: { cidades: SlideDeCidade[] }) {
                   {cidade.cidade}, {cidade.uf}
                 </span>
                 <span className="text-sm text-white/85">
-                  {cidade.total.toLocaleString("pt-BR")} {cidade.total === 1 ? "negócio do bem" : "negócios do bem"}
+                  {cidade.total.toLocaleString("pt-BR")} {cidade.total === 1 ? "negócio local" : "negócios locais"}
                 </span>
               </span>
             </Link>

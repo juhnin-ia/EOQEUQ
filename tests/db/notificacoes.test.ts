@@ -34,7 +34,7 @@ async function criarEmpresa(username: string, donos: { id: string }[] = []) {
     data: {
       instagramUsername: username,
       nome: `Padaria ${username}`,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Café e padaria",
       cidade: "Recife",
       uf: "PE",
@@ -71,7 +71,7 @@ describe("decisão da reivindicação", () => {
 
     expect(destinatarios()).toEqual(["ana@exemplo.com"]);
     const [email] = enviados();
-    expect(email!.assunto).toBe("Você agora é dono de Padaria florescer no Negócio do Bem");
+    expect(email!.assunto).toBe("Você agora é dono de Padaria florescer no Era o que eu queria");
     expect(email!.texto).toContain("Olá, Ana!");
     expect(email!.texto).toContain("/painel/florescer");
   });
@@ -136,7 +136,7 @@ describe("avisos para a moderação", () => {
   });
 });
 
-describe("Clube do Bem", () => {
+describe("Clube de Vantagens", () => {
   async function pedidoDe(status: string, motivo: string | null = null) {
     const dona = await criarConta("Dora Dona", "dora@exemplo.com");
     const empresa = await criarEmpresa("florescer", [dona]);
@@ -151,7 +151,7 @@ describe("Clube do Bem", () => {
 
     expect(destinatarios()).toEqual(["mod1@exemplo.com", "mod2@exemplo.com"]);
     for (const email of enviados()) {
-      expect(email.assunto).toBe("Novo pedido do Clube do Bem: @florescer");
+      expect(email.assunto).toBe("Novo pedido do Clube de Vantagens: @florescer");
       expect(email.texto).toContain("/moderacao?aba=clube");
       expect(email.texto).not.toContain("Dora");
       expect(email.texto).not.toContain("11.222.333");
@@ -164,7 +164,7 @@ describe("Clube do Bem", () => {
     await avisarDecisaoDoClube(empresaId, donaId);
 
     expect(destinatarios()).toEqual(["dora@exemplo.com"]);
-    expect(enviados()[0]!.assunto).toBe("Padaria florescer está no Clube do Bem");
+    expect(enviados()[0]!.assunto).toBe("Padaria florescer está no Clube de Vantagens");
     expect(enviados()[0]!.texto).toContain("/painel/florescer/clube");
   });
 
@@ -199,7 +199,7 @@ describe("dono removido pela moderação", () => {
 
     expect(destinatarios()).toEqual(["cris@exemplo.com"]);
     const [email] = enviados();
-    expect(email!.assunto).toBe("Você não é mais dono de Padaria coffeelab no Negócio do Bem");
+    expect(email!.assunto).toBe("Você não é mais dono de Padaria coffeelab no Era o que eu queria");
     expect(email!.texto).toContain("Olá, Cristiane!");
     expect(email!.texto).toContain("Motivo: O nome não bate com a sócia na Receita.");
     expect(email!.texto).toContain("/empresas/coffeelab/reivindicar");

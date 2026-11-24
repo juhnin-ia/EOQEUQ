@@ -4,7 +4,7 @@ import { tituloNaCidade, type EmbaixadorNoSite } from "@/lib/embaixadores";
 import { ehFotoDoSite } from "@/lib/fotos";
 import { iniciais } from "@/lib/texto";
 
-// Peças dos embaixadores do bem: o rosto, o cartão de /embaixadores e o bloco da
+// Peças dos embaixadores locais: o rosto, o cartão de /embaixadores e o bloco da
 // página da cidade. A faixa da página inicial fica em FaixaEmbaixadores.tsx, e a
 // página de cada embaixador, em src/app/embaixadores/[usuario]. Os links do nome
 // e do @ levam a essa página; o Instagram fica no botão "Seguir" de lá.
@@ -79,7 +79,7 @@ export function EmbaixadoresDaCidade({ embaixadores }: { embaixadores: Embaixado
   const [principal, ...outros] = embaixadores;
   if (!principal) return null;
   return (
-    <section aria-label="Embaixadores do bem" className="cartao border-coral-100 p-5">
+    <section aria-label="Embaixadores locais" className="cartao border-coral-100 p-5">
       <div className="flex flex-wrap items-center gap-4">
         <RostoDoEmbaixador embaixador={principal} className="h-15 w-15 text-xl ring-2 ring-coral ring-offset-[3px] ring-offset-superficie" />
         <div className="min-w-0 flex-[1_1_12rem]">

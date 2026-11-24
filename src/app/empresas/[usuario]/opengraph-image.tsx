@@ -9,7 +9,7 @@ import { iniciais } from "@/lib/texto";
 
 // Prévia do link de um perfil: foto, nome, tipo, cidade e causas do negócio.
 // Perfis fora do diretório levam a imagem geral do site, sem dados do negócio.
-export const alt = "Perfil de um negócio no Negócio do Bem";
+export const alt = "Perfil de um negócio no Era o que eu queria";
 export const size = TAMANHO;
 export const contentType = "image/png";
 
@@ -35,14 +35,14 @@ export default async function Imagem({ params }: { params: Promise<{ usuario: st
           width: "100%",
           height: "100%",
           padding: "52px 72px 64px",
-          background: CORES_DA_MARCA.creme,
-          borderBottom: `14px solid ${CORES_DA_MARCA.laranja}`,
+          background: CORES_DA_MARCA.gelo,
+          borderBottom: `14px solid ${CORES_DA_MARCA.vermelho}`,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <LogoNaImagem largura={290} />
           {empresa.status === "verificada" && (
-            <Etiqueta fundo="#e8f3ec" cor={CORES_DA_MARCA.verde}>
+            <Etiqueta fundo="#e9ecef" cor="#4c535a">
               Perfil assumido
             </Etiqueta>
           )}
@@ -55,7 +55,7 @@ export default async function Imagem({ params }: { params: Promise<{ usuario: st
               width={220}
               height={220}
               alt=""
-              style={{ borderRadius: 999, objectFit: "cover", border: "6px solid #fffdf9" }}
+              style={{ borderRadius: 999, objectFit: "cover", border: "6px solid #ffffff" }}
             />
           ) : (
             <div
@@ -66,8 +66,8 @@ export default async function Imagem({ params }: { params: Promise<{ usuario: st
                 width: 220,
                 height: 220,
                 borderRadius: 999,
-                background: CORES_DA_MARCA.laranja,
-                color: CORES_DA_MARCA.creme,
+                background: CORES_DA_MARCA.vermelho,
+                color: CORES_DA_MARCA.gelo,
                 fontFamily: "Newsreader",
                 fontSize: 96,
               }}
@@ -81,7 +81,7 @@ export default async function Imagem({ params }: { params: Promise<{ usuario: st
                 fontFamily: "Newsreader",
                 fontSize: nome.length > 40 ? 58 : nome.length > 22 ? 70 : 84,
                 lineHeight: 1.04,
-                color: CORES_DA_MARCA.marrom,
+                color: CORES_DA_MARCA.chumbo,
               }}
             >
               {nome}
@@ -95,7 +95,7 @@ export default async function Imagem({ params }: { params: Promise<{ usuario: st
         {causas.length > 0 && (
           <div style={{ display: "flex", gap: 14 }}>
             {causas.map((causa) => (
-              <Etiqueta key={causa} fundo="#fbdccd" cor="#b9401d">
+              <Etiqueta key={causa} fundo="#f8d3d8" cor="#9b0c22">
                 {causa}
               </Etiqueta>
             ))}

@@ -17,7 +17,7 @@ function voltarDaModeracao(dados: FormData, username: string, aviso: string): ne
   redirect(`/moderacao/negocios/${username}?aviso=${aviso}#clube`);
 }
 
-/** Libera um dono do negócio para o Clube do Bem, com o CNPJ conferido na Receita. Só a moderação. */
+/** Libera um dono do negócio para o Clube de Vantagens, com o CNPJ conferido na Receita. Só a moderação. */
 export async function liberarDonoParaClube(dados: FormData): Promise<void> {
   const moderador = await exigirModerador("acao");
   const empresa = await db.empresa.findUnique({ where: { id: texto(dados, "empresaId") }, select: { id: true, instagramUsername: true } });
@@ -67,7 +67,7 @@ const ERROS_DO_PEDIDO: Partial<Record<MotivoRecusaClube, string>> = {
   sem_documento: "Envie a foto do seu RG ou da sua CNH.",
 };
 
-/** O dono pede a verificação do negócio para o Clube do Bem, com o CNPJ. O pedido vai para a fila da moderação. */
+/** O dono pede a verificação do negócio para o Clube de Vantagens, com o CNPJ. O pedido vai para a fila da moderação. */
 export async function pedirVerificacaoAcao(_estado: EstadoFormulario, dados: FormData): Promise<EstadoFormulario> {
   const empresa = await db.empresa.findUnique({ where: { id: texto(dados, "empresaId") }, select: { id: true, instagramUsername: true } });
   if (!empresa) redirect("/painel");

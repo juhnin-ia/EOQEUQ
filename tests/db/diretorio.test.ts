@@ -15,7 +15,7 @@ async function criarEmpresa(
   dados: { nome: string; categoria: string; cidade: string; uf: string; causas?: string[]; status?: string; moderacao?: string; oculta?: boolean },
 ) {
   const { causas = [], ...resto } = dados;
-  const campos = { resumo: "Um negócio do bem", ...resto };
+  const campos = { resumo: "Um negócio local", ...resto };
   return db.empresa.create({
     data: {
       instagramUsername: username,

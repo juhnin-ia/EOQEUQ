@@ -57,7 +57,7 @@ async function Conteudo({ params, searchParams }: Pick<PageProps<"/painel/[usuar
           ← {empresa.nome}
         </Link>
         <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Trabalho do bem</p>
+          <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Trabalho local</p>
           <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">Vagas e candidaturas</h1>
         </div>
         <AvisoDaUrl codigo={aviso} />

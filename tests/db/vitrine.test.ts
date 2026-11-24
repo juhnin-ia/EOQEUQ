@@ -13,7 +13,7 @@ function criar(username: string, dados: { fotoUrl?: string | null; moderacao?: s
     data: {
       instagramUsername: username,
       nome: username,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Café e padaria",
       cidade: "Recife",
       uf: "PE",

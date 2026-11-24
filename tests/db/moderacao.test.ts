@@ -45,7 +45,7 @@ async function criarEmpresa(
   }> = {},
 ) {
   const { causas = [], ...resto } = dados;
-  const campos = { nome: `Negócio ${username}`, resumo: "Um negócio do bem", categoria: "Serviços", cidade: "Recife", uf: "PE", ...resto };
+  const campos = { nome: `Negócio ${username}`, resumo: "Um negócio local", categoria: "Serviços", cidade: "Recife", uf: "PE", ...resto };
   return db.empresa.create({
     data: {
       instagramUsername: username,
@@ -152,7 +152,7 @@ describe("resumoDoPainel", () => {
     });
   });
 
-  it("conta os pedidos do Clube do Bem em análise", async () => {
+  it("conta os pedidos do Clube de Vantagens em análise", async () => {
     const [empresa, usuario] = await Promise.all([db.empresa.findFirstOrThrow(), db.usuario.findFirstOrThrow()]);
     await db.liberacaoClube.create({ data: { empresaId: empresa.id, usuarioId: usuario.id, cnpj: "11222333000181", status: "pendente" } });
 

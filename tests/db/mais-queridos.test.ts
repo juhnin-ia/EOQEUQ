@@ -10,7 +10,7 @@ async function limparBanco() {
 
 function criar(username: string, dados: { moderacao?: string; oculta?: boolean } = {}) {
   return db.empresa.create({
-    data: { instagramUsername: username, nome: username, resumo: "Um negócio do bem", categoria: "Café e padaria", cidade: "Recife", uf: "PE", moderacao: "aprovada", ...dados },
+    data: { instagramUsername: username, nome: username, resumo: "Um negócio local", categoria: "Café e padaria", cidade: "Recife", uf: "PE", moderacao: "aprovada", ...dados },
   });
 }
 

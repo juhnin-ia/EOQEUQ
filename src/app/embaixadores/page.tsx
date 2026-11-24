@@ -7,12 +7,12 @@ import { EMAIL_DO_PROJETO, NOMES_UF, UFS, type Uf } from "@/lib/dominio";
 import { atualizarSeguidoresDoDia, embaixadoresNoSite, formatarSeguidores, type EmbaixadorNoSite } from "@/lib/embaixadores";
 import { metadadosDaPagina } from "@/lib/seo";
 
-// Todos os embaixadores do bem, com filtro por estado (?estado=BA) e o convite
+// Todos os embaixadores locais, com filtro por estado (?estado=BA) e o convite
 // para quem quer ser um. O cadastro é da moderação (aba Embaixadores).
 export const metadata: Metadata = metadadosDaPagina({
-  titulo: "Embaixadores do bem",
+  titulo: "Embaixadores locais",
   descricao:
-    "Quem leva o Negócio do Bem para cada cidade e estado: siga os embaixadores no Instagram e conheça os negócios do bem de onde eles vivem.",
+    "Quem leva o Era o que eu queria para cada cidade e estado: siga os embaixadores no Instagram e conheça os negócios locais de onde eles vivem.",
   caminho: "/embaixadores",
 });
 
@@ -34,8 +34,8 @@ export default function Embaixadores(props: PageProps<"/embaixadores">) {
             Embaixadores do <span className="font-serif text-coral italic">bem</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-pretty text-suave">
-            Pessoas que levam o Negócio do Bem para as suas cidades: indicam negócios, contam as histórias deles e chamam a
-            comunidade para comprar de quem faz o bem. Siga cada um no Instagram e veja os negócios de onde moram.
+            Pessoas que levam o Era o que eu queria para as suas cidades: indicam negócios, contam as histórias deles e chamam a
+            comunidade para comprar de quem está perto. Siga cada um no Instagram e veja os negócios de onde moram.
           </p>
         </div>
         <Suspense fallback={<div className="min-h-64 flex-[1_1_24rem] animate-pulse rounded-[2rem] bg-superficie" aria-busy="true" />}>
@@ -49,12 +49,12 @@ export default function Embaixadores(props: PageProps<"/embaixadores">) {
 
       <section className="mt-16 flex flex-col items-start justify-between gap-5 rounded-3xl bg-tinta px-8 py-10 text-papel sm:flex-row sm:items-center escuro:bg-superficie escuro:text-tinta escuro:ring-1 escuro:ring-linha">
         <div>
-          <h2 className="font-display text-3xl font-semibold">Quer ser embaixador do bem?</h2>
+          <h2 className="font-display text-3xl font-semibold">Quer ser embaixador local?</h2>
           <p className="mt-1 max-w-xl text-papel/70 escuro:text-suave">
             Se você fala da sua cidade nas redes e quer levar mais gente aos negócios de lá, escreva para a gente.
           </p>
         </div>
-        <a href={`mailto:${EMAIL_DO_PROJETO}?subject=Quero ser embaixador do bem`} className="botao-coral shrink-0 px-6 py-3 text-base">
+        <a href={`mailto:${EMAIL_DO_PROJETO}?subject=Quero ser embaixador local`} className="botao-coral shrink-0 px-6 py-3 text-base">
           Escrever para {EMAIL_DO_PROJETO}
         </a>
       </section>
@@ -116,7 +116,7 @@ async function Lista({ searchParams }: Pick<PageProps<"/embaixadores">, "searchP
     return (
       <div className="cartao mt-10 px-6 py-14 text-center">
         <p className="font-display text-2xl">Os primeiros embaixadores chegam em breve.</p>
-        <p className="mx-auto mt-2 max-w-md text-suave">Enquanto isso, indique os negócios do bem da sua cidade.</p>
+        <p className="mx-auto mt-2 max-w-md text-suave">Enquanto isso, indique os negócios locais da sua cidade.</p>
         <Link href="/participar" className="botao-coral mt-6">
           Indicar um negócio
         </Link>

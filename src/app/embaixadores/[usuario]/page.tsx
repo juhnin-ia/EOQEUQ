@@ -19,7 +19,7 @@ import {
 import { linkPerfil } from "@/lib/instagram";
 import { jsonLdDaVitrine, metadadosDaPagina, type Migalha } from "@/lib/seo";
 
-// A página de cada embaixador do bem (#259), com link próprio para divulgar no
+// A página de cada embaixador local (#259), com link próprio para divulgar no
 // Instagram: quem é, o "Sobre" escrito pela moderação e, abaixo, os negócios da
 // cidade ou do estado. Um @ que não é de embaixador no site mostra "Não
 // encontramos esta página". A prévia do link vem do opengraph-image.tsx desta pasta.
@@ -29,7 +29,7 @@ function textos(embaixador: EmbaixadorNoSite) {
   return {
     regiao,
     titulo: `${embaixador.nome} · ${tituloComLugar(embaixador)}`,
-    descricao: `${embaixador.nome} (@${embaixador.instagramUsername}) leva o Negócio do Bem para ${regiao}. Siga no Instagram e conheça os negócios do bem de lá, indicados por quem é cliente.`,
+    descricao: `${embaixador.nome} (@${embaixador.instagramUsername}) leva o Era o que eu queria para ${regiao}. Siga no Instagram e conheça os negócios locais de lá, indicados por quem é cliente.`,
     migalhas: [
       { nome: "Início", caminho: "/" },
       { nome: "Embaixadores", caminho: "/embaixadores" },
@@ -75,13 +75,13 @@ async function Embaixador({ params }: Pick<PageProps<"/embaixadores/[usuario]">,
           <p className="whitespace-pre-line">{embaixador.sobre}</p>
         ) : (
           <p>
-            {embaixador.nome} leva o Negócio do Bem para {regiao} e chama a comunidade para comprar de quem faz o bem. Abaixo, os
-            negócios do bem de lá, indicados por quem é cliente.
+            {embaixador.nome} leva o Era o que eu queria para {regiao} e chama a comunidade para comprar de quem está perto. Abaixo, os
+            negócios locais de lá, indicados por quem é cliente.
           </p>
         )
       }
       capa={<Perfil embaixador={embaixador} />}
-      tituloDaLista={embaixador.cidade ? `Negócios do bem em ${embaixador.cidade}, ${embaixador.uf}` : "Negócios do bem em todo o estado"}
+      tituloDaLista={embaixador.cidade ? `Negócios locais em ${embaixador.cidade}, ${embaixador.uf}` : "Negócios locais em todo o estado"}
       total={resultado.total}
       itens={resultado.itens}
       hrefNoDiretorio={hrefDiretorio({ onde })}
@@ -112,7 +112,7 @@ async function Embaixador({ params }: Pick<PageProps<"/embaixadores/[usuario]">,
         }))}
       />
       <Atalhos
-        titulo="Outros embaixadores do bem"
+        titulo="Outros embaixadores locais"
         itens={todos.filter((e) => e.id !== embaixador.id).map((e) => ({ chave: e.id, rotulo: e.nome, href: e.href }))}
       />
     </Vitrine>

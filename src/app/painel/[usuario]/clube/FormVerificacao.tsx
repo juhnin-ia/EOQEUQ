@@ -56,7 +56,7 @@ export function FormVerificacao({ empresaId, cnpj, nome, deNovo }: { empresaId: 
       <label className="flex cursor-pointer items-start gap-2 text-sm leading-relaxed">
         <input type="checkbox" name="consentimento" value="sim" required className="mt-1 h-4 w-4 shrink-0 accent-coral" />
         <span>
-          Autorizo o Negócio do Bem a usar o meu nome, o meu CPF e a foto do meu documento só para conferir que sou dono deste negócio.{" "}
+          Autorizo o Era o que eu queria a usar o meu nome, o meu CPF e a foto do meu documento só para conferir que sou dono deste negócio.{" "}
           <Link href="/sobre#privacidade" className="link">
             Privacidade
           </Link>

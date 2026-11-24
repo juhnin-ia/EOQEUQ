@@ -31,7 +31,7 @@ type EmpresaDaTroca = {
  * Troca o endereço do negócio para o @ `novo` (já normalizado). Recusa um @ que já é
  * de outro negócio. O endereço antigo passa a redirecionar para o novo; se o novo era
  * endereço antigo de algum negócio, deixa de ser. Troca feita pelo dono suspende o
- * Clube do Bem até a moderação conferir de novo, como a troca de contato.
+ * Clube de Vantagens até a moderação conferir de novo, como a troca de contato.
  */
 export async function trocarArroba(
   tx: Prisma.TransactionClient,
@@ -164,7 +164,7 @@ type Decisao = { empresaId: string; usuarioId: string; arrobaNovo: string };
 
 /**
  * A moderação aprova: a troca segue `trocarArroba`, como uma troca da moderação (o
- * endereço antigo passa a levar ao novo, sem suspender o Clube do Bem). Recusa se o
+ * endereço antigo passa a levar ao novo, sem suspender o Clube de Vantagens). Recusa se o
  * pedido já foi decidido, se o @ do negócio mudou depois do pedido ou se o @ novo foi
  * ocupado por outro negócio enquanto isso; nesses casos o pedido fica na fila.
  */

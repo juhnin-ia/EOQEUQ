@@ -11,7 +11,7 @@ import { DocumentosDoPedido } from "./DocumentosDoPedido";
 import { FichaDaReceita, type NegocioDaFicha } from "./FichaDaReceita";
 
 /**
- * A fila do Clube do Bem: os donos que pediram a verificação com o CNPJ. Cada pedido já
+ * A fila do Clube de Vantagens: os donos que pediram a verificação com o CNPJ. Cada pedido já
  * traz a ficha da Receita, para a moderação liberar ou recusar sem sair da fila. O mais
  * antigo vem primeiro.
  */

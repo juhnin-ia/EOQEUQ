@@ -42,7 +42,7 @@ beforeEach(async () => {
     data: {
       instagramUsername: "padaria.flor",
       nome: "Padaria Flor",
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Serviços",
       cidade: "Recife",
       uf: "PE",

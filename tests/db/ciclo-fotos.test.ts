@@ -60,7 +60,7 @@ function criarEmpresa(username: string, historia: string) {
     data: {
       instagramUsername: username,
       nome: `Negócio ${username}`,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Serviços",
       cidade: "Recife",
       uf: "PE",
@@ -113,7 +113,7 @@ async function publicacaoDeSite(caminho: "edicao" | "indicacao" | "reivindicacao
   vi.mocked(exigirUsuario).mockResolvedValue({ ...usuario, moderador: false, emailConfirmado: true });
   const dados = new FormData();
   for (const [campo, valor] of Object.entries({
-    nome: "Negócio do bairro", categoria: "Serviços", municipio: "Recife, PE", resumo: "Um negócio do bem do bairro",
+    nome: "Negócio do bairro", categoria: "Serviços", municipio: "Recife, PE", resumo: "Um negócio local do bairro",
     semInstagram: "sim", souDono: "sim", site: FOTO, whatsapp: "5511999999999", telefoneComercial: "5511999999999", telefoneDoDono: "5511999999999", emailDoDono: "dona@example.test",
   })) dados.set(campo, valor);
   return { publicar: () => indicarEmpresa(undefined, dados) };

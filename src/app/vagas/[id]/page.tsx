@@ -31,7 +31,7 @@ export async function generateMetadata(props: PageProps<"/vagas/[id]">): Promise
   if (!vaga) return { title: "Vaga não encontrada", robots: { index: false } };
   return metadadosDaPagina({
     titulo: `${vaga.titulo} · ${vaga.empresa.nome}`,
-    descricao: `${vaga.titulo} em ${vaga.empresa.nome}, ${vaga.cidade}, ${vaga.uf}. ${rotuloDoValor(vaga)}. Candidate-se pelo Negócio do Bem.`,
+    descricao: `${vaga.titulo} em ${vaga.empresa.nome}, ${vaga.cidade}, ${vaga.uf}. ${rotuloDoValor(vaga)}. Candidate-se pelo Era o que eu queria.`,
     caminho: `/vagas/${vaga.id}`,
   });
 }

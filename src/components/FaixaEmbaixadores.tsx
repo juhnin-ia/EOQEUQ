@@ -25,7 +25,7 @@ export async function FaixaEmbaixadores() {
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Embaixadores do <span className="font-serif text-coral italic">bem</span>
           </h2>
-          <p className="mt-2 leading-relaxed text-suave">Quem leva o Negócio do Bem para a própria cidade. Siga e veja os negócios de lá.</p>
+          <p className="mt-2 leading-relaxed text-suave">Quem leva o Era o que eu queria para a própria cidade. Siga e veja os negócios de lá.</p>
         </div>
         <Link href="/embaixadores" className="botao-claro">
           {todos.length === 1 ? "Ver os embaixadores" : `Conhecer todos os ${todos.length}`} <span aria-hidden="true">→</span>

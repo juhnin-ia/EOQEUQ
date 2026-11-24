@@ -82,8 +82,8 @@ describe("configGoogle", () => {
   it("monta a URI de retorno a partir do APP_URL, sem barra repetida", () => {
     vi.stubEnv("GOOGLE_CLIENT_ID", CLIENTE);
     vi.stubEnv("GOOGLE_CLIENT_SECRET", "segredo");
-    vi.stubEnv("APP_URL", "https://www.negociodobem.com/");
-    expect(configGoogle()?.redirectUri).toBe("https://www.negociodobem.com/api/google/retorno");
+    vi.stubEnv("APP_URL", "https://www.eraoqueeuqueria.com.br/");
+    expect(configGoogle()?.redirectUri).toBe("https://www.eraoqueeuqueria.com.br/api/google/retorno");
   });
 });
 

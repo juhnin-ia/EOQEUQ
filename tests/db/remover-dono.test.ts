@@ -27,7 +27,7 @@ async function criarEmpresa(username: string) {
     data: {
       instagramUsername: username,
       nome: `Negócio ${username}`,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Café e padaria",
       cidade: "São Paulo",
       uf: "SP",
@@ -135,7 +135,7 @@ describe("removerDono", () => {
   });
 });
 
-describe("removerDono no Clube do Bem", () => {
+describe("removerDono no Clube de Vantagens", () => {
   it("suspende a liberação e as ofertas que a pessoa criou; a oferta de outro dono continua", async () => {
     const empresa = await criarEmpresa("cafe");
     const ana = await criarUsuario("Ana");

@@ -174,7 +174,7 @@ describe("a moderação decide", () => {
     await expect(criarEmpresa("fabsreis")).resolves.toBeTruthy();
   });
 
-  it("aprovada, não suspende o Clube do Bem, porque a moderação conferiu o @", async () => {
+  it("aprovada, não suspende o Clube de Vantagens, porque a moderação conferiu o @", async () => {
     await db.liberacaoClube.create({ data: { empresaId, usuarioId: dona.id, cnpj: "11222333000181" } });
 
     await destino(aprovar());

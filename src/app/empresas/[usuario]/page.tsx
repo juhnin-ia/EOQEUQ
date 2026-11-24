@@ -77,7 +77,7 @@ async function Perfil({ params, searchParams }: Pick<PageProps<"/empresas/[usuar
   const coracao = publico
     ? (await coracoesDaLista(usuario, [empresa.id], `/empresas/${empresa.instagramUsername}`))(empresa.id)
     : undefined;
-  // Parceiro do Clube do Bem: um dono liberado pela moderação, que ainda é dono.
+  // Parceiro do Clube de Vantagens: um dono liberado pela moderação, que ainda é dono.
   const parceiro = perfilVerificado(empresa);
   // A hora atual só depois da sessão e dos parâmetros: o Cache Components não deixa antes.
   const oferta = publico && empresa.ofertas[0] && empresa.ofertas[0].fim > new Date() ? empresa.ofertas[0] : undefined;
@@ -121,7 +121,7 @@ async function Perfil({ params, searchParams }: Pick<PageProps<"/empresas/[usuar
             <div className="flex flex-wrap items-center gap-2">
               <SeloStatus status={empresa.status} verificado={parceiro} />
               {parceiro && (
-                <span className="rounded-full bg-coral-50 px-2.5 py-1 text-xs font-semibold text-coral-700">Parceiro do Clube do Bem</span>
+                <span className="rounded-full bg-coral-50 px-2.5 py-1 text-xs font-semibold text-coral-700">Parceiro do Clube de Vantagens</span>
               )}
             </div>
             <h1 className="font-display text-[clamp(1.75rem,5vw,2.625rem)] leading-[1.1] font-semibold tracking-tight text-balance">{empresa.nome}</h1>
@@ -330,7 +330,7 @@ function Acoes({
 }
 
 /**
- * A oferta do Clube do Bem que está valendo, na coluna do lado. Quem favoritou gera o cupom
+ * A oferta do Clube de Vantagens que está valendo, na coluna do lado. Quem favoritou gera o cupom
  * com um toque; quem não favoritou, gera e favorita junto. O cupom aparece aqui mesmo.
  */
 function OfertaDoClube({
@@ -352,7 +352,7 @@ function OfertaDoClube({
   const perfil = `/empresas/${empresa.instagramUsername}`;
   return (
     <div id="clube" className="cartao scroll-mt-24 space-y-3 border-coral/40 p-5">
-      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">🎟️ Clube do Bem</p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">🎟️ Clube de Vantagens</p>
       <div>
         <p className="font-display text-xl leading-snug font-semibold">{oferta.titulo}</p>
         <p className="mt-1 text-sm text-suave">
@@ -400,7 +400,7 @@ function OfertaDoClube({
         </form>
       )}
       <p className="text-xs leading-relaxed text-suave">
-        O Negócio do Bem nunca pede Pix nem pagamento para liberar cupom. O desconto vale na hora da compra, e quem garante é o
+        O Era o que eu queria nunca pede Pix nem pagamento para liberar cupom. O desconto vale na hora da compra, e quem garante é o
         negócio.{" "}
         <Link href="/clube-do-bem" className="link">
           Como funciona
@@ -665,7 +665,7 @@ async function Parecidos({ empresa }: { empresa: Perfil }) {
   return (
     <section className="border-t border-linha bg-superficie/50 py-12">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <h2 className="font-display text-3xl font-semibold">Mais negócios do bem em {empresa.cidade}</h2>
+        <h2 className="font-display text-3xl font-semibold">Mais negócios locais em {empresa.cidade}</h2>
         <div className="mt-6 space-y-3">
           {parecidos.map((outro) => (
             <EmpresaLinha key={outro.instagramUsername} empresa={outro} />

@@ -4,7 +4,7 @@ import { BotaoEnviar } from "@/components/BotaoEnviar";
 /**
  * "Remover dos donos": abre o formulário com o motivo, que a pessoa recebe por e-mail, e a
  * confirmação. Usado na seção de donos da ficha do negócio e, quando o nome da conta não
- * bate com a Receita, na ficha do Clube do Bem (na ficha do negócio e na fila do clube).
+ * bate com a Receita, na ficha do Clube de Vantagens (na ficha do negócio e na fila do clube).
  */
 export function RemoverDono({
   empresaId,
@@ -42,7 +42,7 @@ export function RemoverDono({
         <label className="flex cursor-pointer items-start gap-2 leading-relaxed">
           <input type="checkbox" name="confirmo" value="sim" required className="mt-1 h-4 w-4 shrink-0 accent-coral" />
           <span>
-            Confirmo: {dono.nome} deixa de ser dono de @{username}. Perde a edição do perfil, a liberação do Clube do Bem e as
+            Confirmo: {dono.nome} deixa de ser dono de @{username}. Perde a edição do perfil, a liberação do Clube de Vantagens e as
             ofertas que criou.
           </span>
         </label>

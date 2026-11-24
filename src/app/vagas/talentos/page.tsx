@@ -23,14 +23,14 @@ import { AREAS, CONTRATOS, MODALIDADES } from "@/lib/vagas-rotulos";
 // Fora do Google: são pessoas, não negócios. Quem procura trabalho aparece para quem visita o site.
 export const metadata: Metadata = {
   title: "Banco de talentos",
-  description: "Pessoas abertas a trabalho em negócios do bem: o que sabem fazer, o que procuram e onde estão.",
+  description: "Pessoas abertas a trabalho em negócios locais: o que sabem fazer, o que procuram e onde estão.",
   robots: FORA_DA_BUSCA,
 };
 
 export default function Talentos(props: PageProps<"/vagas/talentos">) {
   return (
     <div className="mx-auto max-w-4xl px-4 pt-8 sm:px-6 sm:pt-12">
-      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Trabalho do bem</p>
+      <p className="text-xs font-semibold tracking-[0.2em] text-coral-700 uppercase">Trabalho local</p>
       <h1 className="mt-1 font-display text-4xl font-semibold tracking-tight">Banco de talentos</h1>
       <p className="mt-3 max-w-2xl text-suave">
         Gente aberta a trabalho, com o que sabe fazer e o que procura. Quem tem um negócio no diretório vê o contato e o currículo e chama para

@@ -3,7 +3,7 @@ import type { UsuarioSessao } from "@/lib/auth/sessao";
 import { db } from "@/lib/db";
 import { condicaoDeOfertaPublica } from "@/lib/ofertas";
 
-/** Os negócios em que a pessoa é dona e pode criar ofertas (liberada no Clube do Bem). */
+/** Os negócios em que a pessoa é dona e pode criar ofertas (liberada no Clube de Vantagens). */
 export async function negociosDoClube(usuarioId: string) {
   const liberacoes = await db.liberacaoClube.findMany({
     where: { usuarioId, status: "liberada", empresa: { membros: { some: { usuarioId } } } },
@@ -13,7 +13,7 @@ export async function negociosDoClube(usuarioId: string) {
   return liberacoes.map((liberacao) => liberacao.empresa);
 }
 
-/** Quantas ofertas do Clube do Bem estão valendo agora, para o número da aba Cupons. */
+/** Quantas ofertas do Clube de Vantagens estão valendo agora, para o número da aba Cupons. */
 export async function contarOfertasValendo(): Promise<number> {
   return db.oferta.count({ where: condicaoDeOfertaPublica() });
 }

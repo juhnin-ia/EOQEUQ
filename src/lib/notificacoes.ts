@@ -134,7 +134,7 @@ export async function avisarDonoRemovido(empresaId: string, usuarioId: string, m
     assunto: `Você não é mais dono de ${empresa.nome} no ${NOME_DO_SITE}`,
     texto: corpo(
       `Olá, ${primeiroNome(usuario.nome)}!`,
-      `A moderação tirou a sua conta dos donos do perfil de ${empresa.nome} (@${empresa.instagramUsername}). Você não edita mais o perfil, e as ofertas que você criou no Clube do Bem saíram do ar.`,
+      `A moderação tirou a sua conta dos donos do perfil de ${empresa.nome} (@${empresa.instagramUsername}). Você não edita mais o perfil, e as ofertas que você criou no Clube de Vantagens saíram do ar.`,
       `Motivo: ${comPontoFinal(motivo)}`,
       `Se você é dono deste negócio, responda este e-mail ou peça o perfil de novo. A moderação vai analisar o pedido:\n${ENDERECO_DO_SITE}/empresas/${empresa.instagramUsername}/reivindicar`,
     ),
@@ -155,21 +155,21 @@ export async function avisarNovaReivindicacao(empresaId: string): Promise<void> 
   );
 }
 
-/** Para a moderação: um dono pediu a verificação do negócio para o Clube do Bem. */
+/** Para a moderação: um dono pediu a verificação do negócio para o Clube de Vantagens. */
 export async function avisarNovoPedidoDoClube(empresaId: string): Promise<void> {
   if (!envioLigado()) return;
   const empresa = await db.empresa.findUnique({ where: { id: empresaId }, select: { nome: true, instagramUsername: true } });
   if (!empresa) return;
   await avisarModeracao(
-    `Novo pedido do Clube do Bem: @${empresa.instagramUsername}`,
+    `Novo pedido do Clube de Vantagens: @${empresa.instagramUsername}`,
     corpo(
-      `Um dono de ${empresa.nome} (@${empresa.instagramUsername}) pediu a verificação do negócio para criar ofertas no Clube do Bem.`,
+      `Um dono de ${empresa.nome} (@${empresa.instagramUsername}) pediu a verificação do negócio para criar ofertas no Clube de Vantagens.`,
       `Confira o CNPJ na fila do clube:\n${ENDERECO_DO_SITE}${hrefModeracao("clube")}`,
     ),
   );
 }
 
-/** Para o dono: a moderação liberou ou recusou o pedido dele no Clube do Bem. */
+/** Para o dono: a moderação liberou ou recusou o pedido dele no Clube de Vantagens. */
 export async function avisarDecisaoDoClube(empresaId: string, usuarioId: string): Promise<void> {
   if (!envioLigado()) return;
   const liberacao = await db.liberacaoClube.findUnique({
@@ -187,20 +187,20 @@ export async function avisarDecisaoDoClube(empresaId: string, usuarioId: string)
   if (liberacao.status === "liberada") {
     await enviarEmail({
       para: usuario.email,
-      assunto: `${empresa.nome} está no Clube do Bem`,
+      assunto: `${empresa.nome} está no Clube de Vantagens`,
       texto: corpo(
         ola,
-        `A moderação conferiu o CNPJ de ${empresa.nome} (@${empresa.instagramUsername}), e você já pode criar ofertas no Clube do Bem.`,
+        `A moderação conferiu o CNPJ de ${empresa.nome} (@${empresa.instagramUsername}), e você já pode criar ofertas no Clube de Vantagens.`,
         `Crie a primeira no painel do clube:\n${painel}`,
       ),
     });
   } else if (liberacao.status === "recusada") {
     await enviarEmail({
       para: usuario.email,
-      assunto: `Seu pedido do Clube do Bem para ${empresa.nome} não foi aprovado`,
+      assunto: `Seu pedido do Clube de Vantagens para ${empresa.nome} não foi aprovado`,
       texto: corpo(
         ola,
-        `A moderação analisou o pedido de ${empresa.nome} (@${empresa.instagramUsername}) para o Clube do Bem e não aprovou desta vez.`,
+        `A moderação analisou o pedido de ${empresa.nome} (@${empresa.instagramUsername}) para o Clube de Vantagens e não aprovou desta vez.`,
         `Motivo: ${liberacao.motivo ?? "não informado."}`,
         `Você pode corrigir e pedir de novo no painel do clube:\n${painel}`,
       ),

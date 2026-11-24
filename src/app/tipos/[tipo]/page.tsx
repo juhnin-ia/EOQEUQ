@@ -21,7 +21,7 @@ function textos(categoria: string, total: number, cidades: number) {
     descricao:
       total > 0
         ? `${titulo} com consciência social e raízes na comunidade: ${total} no diretório, em ${onde}, com causas, contatos e depoimentos de quem é cliente.`
-        : `${titulo} com consciência social e raízes na comunidade. Conhece algum? Indique no Negócio do Bem.`,
+        : `${titulo} com consciência social e raízes na comunidade. Conhece algum? Indique no Era o que eu queria.`,
     migalhas: [
       { nome: "Início", caminho: "/" },
       { nome: "Diretório", caminho: "/explorar" },

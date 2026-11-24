@@ -15,7 +15,7 @@ export const metadata: Metadata = { title: "Meus cupons", robots: FORA_DA_BUSCA 
 export default function MeusCupons(props: PageProps<"/cupons/meus">) {
   return (
     <div className="mx-auto max-w-3xl px-4 pt-8 sm:px-6 sm:pt-12">
-      <h1 className="font-display text-4xl font-semibold tracking-tight">Cupons do bem</h1>
+      <h1 className="font-display text-4xl font-semibold tracking-tight">Cupons do clube</h1>
       <Suspense fallback={<div className="mt-8 h-80 animate-pulse rounded-3xl bg-superficie" />}>
         <Conteudo searchParams={props.searchParams} />
       </Suspense>
@@ -56,7 +56,7 @@ async function Conteudo({ searchParams }: Pick<PageProps<"/cupons/meus">, "searc
       <AbasCupons ativa="meus" ofertas={ofertasValendo} meus={validos.length} />
       <AvisoDaUrl codigo={aviso} />
       <p className="text-suave">
-        Mostre o código na hora da compra. O Negócio do Bem nunca pede Pix nem pagamento para liberar cupom.{" "}
+        Mostre o código na hora da compra. O Era o que eu queria nunca pede Pix nem pagamento para liberar cupom.{" "}
         <Link href="/clube-do-bem#para-quem-compra" className="link">
           Como funciona
         </Link>
@@ -66,7 +66,7 @@ async function Conteudo({ searchParams }: Pick<PageProps<"/cupons/meus">, "searc
         <div className="cartao p-8 text-center">
           <p className="font-display text-2xl">Você ainda não tem cupons</p>
           <p className="mx-auto mt-2 max-w-md text-suave">
-            Escolha uma oferta do Clube do Bem e gere o cupom. Ele aparece aqui, pronto para mostrar no caixa.
+            Escolha uma oferta do Clube de Vantagens e gere o cupom. Ele aparece aqui, pronto para mostrar no caixa.
           </p>
           <Link href="/cupons" className="botao-coral mt-6">
             Ver as ofertas

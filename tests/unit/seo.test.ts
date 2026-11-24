@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { jsonLdDaVitrine, jsonLdDoNegocio, metadadosDaPagina, paginaDaCidade } from "@/lib/seo";
-import { CORES_DA_MARCA, svgDoLogo } from "@/lib/marca";
+import { CORES_DA_MARCA, svgDoFavicon, svgDoIcone } from "@/lib/marca";
 
 afterEach(() => {
   vi.unstubAllEnvs();
@@ -37,8 +37,8 @@ describe("endereço do site", () => {
 
   it("sem APP_URL em produção, usa o domínio oficial em vez de localhost", async () => {
     const seo = await seoCom({ DEPLOY_ENV: "production", APP_URL: "" });
-    expect(seo.ENDERECO_DO_SITE).toBe("https://www.negociodobem.com");
-    expect(seo.urlAbsoluta("/empresas/x")).toBe("https://www.negociodobem.com/empresas/x");
+    expect(seo.ENDERECO_DO_SITE).toBe("https://www.eraoqueeuqueria.com.br");
+    expect(seo.urlAbsoluta("/empresas/x")).toBe("https://www.eraoqueeuqueria.com.br/empresas/x");
     expect(seo.INDEXAVEL).toBe(true);
   });
 
@@ -59,7 +59,7 @@ describe("metadadosDaPagina", () => {
   it("repete o nome do site e o idioma no openGraph, que substitui o do layout", () => {
     const m = metadadosDaPagina({ titulo: "Explorar negócios", descricao: "Busque.", caminho: "/explorar" });
     expect(m.alternates).toEqual({ canonical: "/explorar" });
-    expect(m.openGraph).toMatchObject({ siteName: "Negócio do Bem", locale: "pt_BR", title: "Explorar negócios", url: "/explorar" });
+    expect(m.openGraph).toMatchObject({ siteName: "Era o que eu queria", locale: "pt_BR", title: "Explorar negócios", url: "/explorar" });
   });
 
   it("leva a imagem geral do site, que se perderia junto com o openGraph do layout", () => {
@@ -145,7 +145,7 @@ describe("caminho até as páginas", () => {
 
   it("a página da cidade lista os negócios em ordem, com o endereço de cada um", () => {
     const dados = jsonLdDaVitrine({
-      titulo: "Negócios do bem em Recife, PE",
+      titulo: "Negócios locais em Recife, PE",
       descricao: "Dois negócios.",
       migalhas: [
         { nome: "Início", caminho: "/" },
@@ -167,10 +167,15 @@ describe("caminho até as páginas", () => {
   });
 });
 
-describe("svgDoLogo", () => {
-  it("no fundo escuro troca o marrom pelo creme", () => {
-    expect(svgDoLogo("claro")).toContain(CORES_DA_MARCA.marrom);
-    expect(svgDoLogo("escuro")).not.toContain(CORES_DA_MARCA.marrom);
-    expect(svgDoLogo("escuro")).toContain(CORES_DA_MARCA.creme);
+describe("svgDoIcone", () => {
+  it("no fundo escuro troca o chumbo pelo gelo", () => {
+    expect(svgDoIcone("claro")).toContain(CORES_DA_MARCA.chumbo);
+    expect(svgDoIcone("escuro")).not.toContain(CORES_DA_MARCA.chumbo);
+    expect(svgDoIcone("escuro")).toContain(CORES_DA_MARCA.gelo);
+  });
+
+  it("o favicon põe o ícone em gelo sobre o vermelho", () => {
+    expect(svgDoFavicon()).toContain(`fill="${CORES_DA_MARCA.vermelho}"`);
+    expect(svgDoFavicon()).not.toContain(CORES_DA_MARCA.chumbo);
   });
 });

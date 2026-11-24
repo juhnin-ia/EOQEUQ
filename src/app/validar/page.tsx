@@ -32,12 +32,12 @@ async function Conteudo({ searchParams }: Pick<PageProps<"/validar">, "searchPar
       <div className="space-y-4">
         <h1 className="font-display text-4xl font-semibold tracking-tight">Validar cupom</h1>
         <div className="cartao space-y-3 p-6">
-          <p className="font-display text-2xl">Só para negócios do Clube do Bem</p>
+          <p className="font-display text-2xl">Só para negócios do Clube de Vantagens</p>
           <p className="text-suave">
             Quando o seu negócio estiver verificado, é aqui que você confere o código que o cliente mostra e marca o cupom como usado.
           </p>
           <Link href="/clube-do-bem#para-negocios" className="botao-coral">
-            Como entrar no Clube do Bem
+            Como entrar no Clube de Vantagens
           </Link>
         </div>
       </div>

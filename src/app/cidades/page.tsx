@@ -9,7 +9,7 @@ import { metadadosDaPagina } from "@/lib/seo";
 // Todas as cidades com negócios no diretório, por estado: a porta de entrada das
 // páginas de cidade para quem navega e para os robôs dos buscadores.
 export const metadata: Metadata = metadadosDaPagina({
-  titulo: "Negócios do bem por cidade",
+  titulo: "Negócios locais por cidade",
   descricao: "Encontre negócios com consciência social e raízes na comunidade na sua cidade, em todos os estados do Brasil.",
   caminho: "/cidades",
 });
@@ -25,7 +25,7 @@ export default function Cidades() {
         <span aria-current="page">Cidades</span>
       </nav>
       <h1 className="mt-6 font-display text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-5xl">
-        Negócios do bem por cidade
+        Negócios locais por cidade
       </h1>
       <p className="mt-4 max-w-2xl text-lg leading-relaxed text-pretty text-suave">
         As cidades que já têm negócios no diretório. Não achou a sua? Indique um negócio de lá.

@@ -18,7 +18,7 @@ function criarEmpresa(username: string, extra: Partial<{ fotoUrl: string; modera
     data: {
       instagramUsername: username,
       nome: `Negócio ${username}`,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Serviços",
       cidade: "Recife",
       uf: "PE",

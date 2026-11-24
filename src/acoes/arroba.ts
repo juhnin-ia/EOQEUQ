@@ -22,7 +22,7 @@ import {
 const ERROS_DO_PEDIDO: Record<MotivoRecusaTroca, string> = {
   arroba_invalido: "Digite o @ do Instagram do negócio (ex.: @padariadobairro).",
   mesmo_arroba: "Este já é o @ do seu negócio.",
-  arroba_em_uso: "Este @ já é de outro negócio do Negócio do Bem. Se ele é seu, fale com a moderação.",
+  arroba_em_uso: "Este @ já é de outro negócio do Era o que eu queria. Se ele é seu, fale com a moderação.",
   nao_e_dono: "Só um dono do negócio pode pedir a troca do @.",
   pedido_em_analise: "Já existe um pedido de troca do @ em análise para este negócio.",
   ja_decidido: "Este pedido já foi decidido.",

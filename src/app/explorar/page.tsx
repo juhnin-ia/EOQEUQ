@@ -30,7 +30,7 @@ import { OrdenarPor } from "./OrdenarPor";
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Explorar negócios",
   descricao:
-    "Busque negócios do bem por cidade, tipo de negócio e pelas causas que importam para você: liderados por mulheres, afroempreendedores, opções veganas, sustentáveis e mais.",
+    "Busque negócios locais por cidade, tipo de negócio e pelas causas que importam para você: liderados por mulheres, afroempreendedores, opções veganas, sustentáveis e mais.",
   caminho: "/explorar",
 });
 
@@ -336,7 +336,7 @@ function Vazio({ filtros, resultado }: { filtros: FiltrosDiretorio; resultado: R
   return (
     <div className="cartao mt-5 px-6 py-14 text-center">
       <p className="font-display text-2xl">
-        {soOLugar ? `Ainda não há negócios do bem em ${resultado.local!.cidade} no diretório.` : "Nenhum negócio com esses filtros por enquanto."}
+        {soOLugar ? `Ainda não há negócios locais em ${resultado.local!.cidade} no diretório.` : "Nenhum negócio com esses filtros por enquanto."}
       </p>
       <p className="mx-auto mt-2 max-w-md text-suave">
         {soOLugar ? "Conhece algum por lá? Indique e ajude a comunidade a encontrá-lo." : "Tire um filtro para ver mais opções, ou indique um negócio que você conhece."}

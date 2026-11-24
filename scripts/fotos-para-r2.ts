@@ -3,7 +3,7 @@
 // Empresa.historia. Sem --aplicar, só mostra o que faria.
 //
 // Rode só depois que o www estiver no Cloudflare: o deploy antigo do Vercel não
-// aceita fotos de fotos.negociodobem.com, e os perfis ficariam sem foto lá.
+// aceita fotos de fotos.eraoqueeuqueria.com.br, e os perfis ficariam sem foto lá.
 // Precisa do wrangler com login na conta do Cloudflare (npx wrangler login).
 //
 // Uso (no banco do DATABASE_URL do .env):
@@ -27,7 +27,7 @@ import { PrismaClient } from "../src/generated/prisma/client";
 import { migrarReferenciasFotos } from "../src/lib/publicacao-fotos";
 
 const BUCKET = process.env.FOTOS_R2_BUCKET || "negocio-do-bem-fotos";
-const URL_PUBLICA = (process.env.FOTOS_R2_URL || "https://fotos.negociodobem.com").replace(/\/$/, "");
+const URL_PUBLICA = (process.env.FOTOS_R2_URL || "https://fotos.eraoqueeuqueria.com.br").replace(/\/$/, "");
 const DOMINIO_BLOB = ".public.blob.vercel-storage.com/";
 const URL_DO_BLOB = /https:\/\/[a-z0-9]+\.public\.blob\.vercel-storage\.com\/[^\s)"'<>\]]+/gi;
 // Os nomes que o site gerou no Blob (perfis/… e historias/…) só têm estes caracteres.

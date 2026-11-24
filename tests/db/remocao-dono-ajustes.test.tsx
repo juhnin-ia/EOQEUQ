@@ -58,7 +58,7 @@ async function criarEmpresa(username: string, extra: { oculta?: boolean } = {}) 
     data: {
       instagramUsername: username,
       nome: `Negócio ${username}`,
-      resumo: "Um negócio do bem",
+      resumo: "Um negócio local",
       categoria: "Café e padaria",
       cidade: "São Paulo",
       uf: "SP",

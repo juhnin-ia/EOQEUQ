@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(ENDERECO_DO_SITE),
   title: {
     default: TITULO_DO_SITE,
-    template: "%s · Negócio do Bem",
+    template: "%s · Era o que eu queria",
   },
   description: DESCRICAO_DO_SITE,
   applicationName: NOME_DO_SITE,
@@ -53,8 +53,8 @@ export const viewport: Viewport = {
   // Sem isso o iPhone não informa a área do botão home, e a barra de baixo ficaria por cima dele.
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: CORES_DA_MARCA.creme },
-    { media: "(prefers-color-scheme: dark)", color: "#17120e" },
+    { media: "(prefers-color-scheme: light)", color: CORES_DA_MARCA.gelo },
+    { media: "(prefers-color-scheme: dark)", color: "#16181b" },
   ],
 };
 
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <header className="sticky top-0 z-30 bg-papel/85 backdrop-blur-lg">
           <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:h-[4.5rem] sm:gap-4 sm:px-6">
-            <Link href="/" className="shrink-0" aria-label="Negócio do Bem — início">
+            <Link href="/" className="shrink-0" aria-label="Era o que eu queria — início">
               <Logo />
             </Link>
             <nav className="flex items-center gap-1 text-sm font-medium sm:gap-2">
@@ -88,7 +88,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 Vagas
               </Link>
               <Link href="/clube-do-bem" className="hidden rounded-full px-3 py-2 text-suave transition hover:bg-areia hover:text-tinta lg:block">
-                Clube do Bem
+                Clube de Vantagens
               </Link>
               <Link href="/sobre" className="hidden rounded-full px-3 py-2 text-suave transition hover:bg-areia hover:text-tinta sm:block">
                 Como funciona
@@ -142,13 +142,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Link href="/explorar" className="block hover:text-tinta">Explorar negócios</Link>
               <Link href="/servicos" className="block hover:text-tinta">Encontrar serviços</Link>
               <Link href="/cidades" className="block hover:text-tinta">Negócios por cidade</Link>
-              <Link href="/embaixadores" className="block hover:text-tinta">Embaixadores do bem</Link>
+              <Link href="/embaixadores" className="block hover:text-tinta">Embaixadores locais</Link>
               <Link href="/participar" className="block hover:text-tinta">Cadastrar um negócio</Link>
             </div>
             <div className="space-y-2">
               <p className="font-semibold text-tinta">Para negócios</p>
               <Link href="/sobre#dono" className="block hover:text-tinta">Reivindicar meu perfil</Link>
-              <Link href="/clube-do-bem" className="block hover:text-tinta">Clube do Bem</Link>
+              <Link href="/clube-do-bem" className="block hover:text-tinta">Clube de Vantagens</Link>
               <Link href="/vagas" className="block hover:text-tinta">Divulgar vagas</Link>
               <Link href="/vagas/talentos" className="block hover:text-tinta">Banco de talentos</Link>
               <Link href="/sobre#privacidade" className="block hover:text-tinta">Privacidade e remoção</Link>

@@ -38,7 +38,7 @@ export function normalizarEndereco(entrada: unknown): string | null {
   return ehEnderecoSemInstagram(entrada) ? entrada : normalizarUsername(entrada);
 }
 
-/** @ do Negócio do Bem no Instagram, mostrado como contato do projeto. */
+/** @ do Era o que eu queria no Instagram, mostrado como contato do projeto. */
 export function perfilOficial(): string | null {
   return normalizarUsername(process.env.INSTAGRAM_PERFIL_OFICIAL);
 }

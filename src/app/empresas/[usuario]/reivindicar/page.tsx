@@ -59,7 +59,7 @@ async function Reivindicar({
       <p className="text-lg leading-relaxed text-suave">
         Conte a sua relação com o negócio para assumir o perfil de{" "}
         <strong className="font-semibold text-tinta">{temInstagram(username) ? `@${username}` : empresa.nome}</strong>. Depois disso, você conta a sua história,
-        escolhe as causas e responde à comunidade. Depois você pode verificar a empresa, com o CNPJ, o nome e o CPF, para ganhar o selo e os benefícios de Parceiro do Clube do Bem.
+        escolhe as causas e responde à comunidade. Depois você pode verificar a empresa, com o CNPJ, o nome e o CPF, para ganhar o selo e os benefícios de Parceiro do Clube de Vantagens.
       </p>
       <AvisoDaUrl codigo={busca.aviso} />
       {busca.aviso === "ig_conta_diferente" && conectada && (

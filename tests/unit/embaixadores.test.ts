@@ -52,8 +52,8 @@ describe("lugar e título", () => {
   });
 
   it("dá à página do embaixador o rótulo, o link pelo @ e a região dos negócios", () => {
-    expect(tituloComLugar({ titulo: "embaixadora", cidade: "Curitiba", uf: "PR" })).toBe("Embaixadora do bem · Curitiba, PR");
-    expect(tituloComLugar({ titulo: "embaixador", cidade: null, uf: "PA" })).toBe("Embaixador do bem · Pará (todo o estado)");
+    expect(tituloComLugar({ titulo: "embaixadora", cidade: "Curitiba", uf: "PR" })).toBe("Embaixadora local · Curitiba, PR");
+    expect(tituloComLugar({ titulo: "embaixador", cidade: null, uf: "PA" })).toBe("Embaixador local · Pará (todo o estado)");
     expect(hrefDoEmbaixador("alodiario_literario")).toBe("/embaixadores/alodiario_literario");
     expect(ondeDoEmbaixador({ cidade: "Curitiba", uf: "PR" })).toBe("Curitiba, PR");
     expect(ondeDoEmbaixador({ cidade: null, uf: "PA" })).toBe("Pará (estado)");
@@ -68,8 +68,8 @@ describe("destinoDoEmbaixador", () => {
   ];
 
   it("leva para a página da cidade, com quantos negócios há lá", () => {
-    expect(destinoDoEmbaixador({ cidade: "Salvador", uf: "BA" }, cidades)).toEqual({ href: "/cidades/salvador-ba", detalhe: "23 negócios do bem" });
-    expect(destinoDoEmbaixador({ cidade: "Feira de Santana", uf: "BA" }, cidades).detalhe).toBe("1 negócio do bem");
+    expect(destinoDoEmbaixador({ cidade: "Salvador", uf: "BA" }, cidades)).toEqual({ href: "/cidades/salvador-ba", detalhe: "23 negócios locais" });
+    expect(destinoDoEmbaixador({ cidade: "Feira de Santana", uf: "BA" }, cidades).detalhe).toBe("1 negócio local");
   });
 
   it("quem cobre o estado leva para o diretório filtrado pelo estado", () => {
