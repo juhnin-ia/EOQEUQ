@@ -65,15 +65,24 @@ describe("seed de demonstração", () => {
     expect(empresas.map((empresa) => [empresa.instagramUsername, empresa.indicadaPor!.email, empresa.membros.map((membro) => membro.usuario.email)])).toEqual([
       ["atelie.raizpreta.exemplo", "joao@exemplo.com", ["joao@exemplo.com"]],
       ["barbearia.doze.exemplo", "joao@exemplo.com", []],
+      ["bicicletaria.muriti.exemplo", "joao@exemplo.com", []],
       ["cafe.arcoiris.exemplo", "joao@exemplo.com", []],
+      ["costura.do.centro.exemplo", "ana@exemplo.com", []],
       ["cuidar.junto.exemplo", "joao@exemplo.com", []],
+      ["cuscuz.da.pimenta.exemplo", "carla@exemplo.com", []],
       ["livraria.encontro.exemplo", "ana@exemplo.com", []],
       ["mercearia.coletiva.exemplo", "bia@exemplo.com", ["bia@exemplo.com"]],
       ["padaria.florescer.exemplo", "ana@exemplo.com", ["ana@exemplo.com"]],
       ["pousada.maeterra.exemplo", "ana@exemplo.com", []],
       ["studio.semente.exemplo", "bia@exemplo.com", ["bia@exemplo.com"]],
     ]);
-    expect(empresas.map((empresa) => empresa.causas.length)).toEqual([4, 2, 3, 3, 3, 4, 4, 3, 4]);
+    expect(empresas.map((empresa) => empresa.causas.length)).toEqual([4, 2, 2, 3, 2, 3, 3, 3, 4, 4, 3, 4]);
+    // Os exemplos do Crato (CE) têm bairro da lista da cidade.
+    expect(empresas.filter((empresa) => empresa.bairro).map((empresa) => [empresa.cidade, empresa.bairro])).toEqual([
+      ["Crato", "Muriti"],
+      ["Crato", "Centro"],
+      ["Crato", "Pimenta"],
+    ]);
     expect(empresas.filter((empresa) => empresa.moderacao === "pendente").map((empresa) => empresa.instagramUsername)).toEqual(["barbearia.doze.exemplo"]);
     expect(empresas.filter((empresa) => empresa.status === "verificada")).toHaveLength(4);
     expect(await db.empresaMembro.count({ where: { papel: "dono" } })).toBe(4);
