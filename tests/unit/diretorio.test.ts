@@ -49,6 +49,7 @@ describe("lerFiltros", () => {
     ).toEqual({
       q: "brechó",
       onde: "Recife, PE",
+      bairro: "",
       // Na ordem da lista oficial de categorias.
       tipos: ["Café e padaria", "Moda e acessórios"],
       causas: ["sustentavel"],

@@ -16,6 +16,7 @@ import { procurarArroba, type ResultadoProcura } from "@/acoes/participacao";
 import { Aviso } from "@/components/Aviso";
 import { BotaoEnviar } from "@/components/BotaoEnviar";
 import { Campo } from "@/components/Campo";
+import { CampoBairro } from "@/components/CampoBairro";
 import { CampoMunicipio } from "@/components/CampoMunicipio";
 import { ConfirmarEmail } from "@/components/ConfirmarEmail";
 import { enviarSemLimpar } from "@/components/envio";
@@ -48,6 +49,7 @@ const ETAPA_DO_CAMPO: Record<string, Etapa> = {
   nome: "nome",
   categoria: "nome",
   municipio: "onde",
+  bairro: "onde",
   resumo: "onde",
   motivo: "causas",
   whatsapp: "contatos",
@@ -387,6 +389,9 @@ export function CadastroPorEtapas({ conta, instagramInicial, donoInicial, contin
         <Secao etapa="onde" atual={etapa} titulo="Onde fica e o que ele faz?">
           <CampoMunicipio valorInicial={inicial?.municipio ?? ""} erro={erro("municipio")} />
           <div className="mt-5">
+            <CampoBairro valorInicial={inicial?.bairro ?? ""} erro={erro("bairro")} aoMudar={() => limpar("bairro")} />
+          </div>
+          <div className="mt-5">
             <Campo id="resumo" rotulo="Em uma frase, o que este negócio faz?" erro={erro("resumo")} ajuda="Até 160 caracteres.">
               <input
                 id="resumo"
@@ -494,7 +499,7 @@ export function CadastroPorEtapas({ conta, instagramInicial, donoInicial, contin
             <dt className="text-suave">Categoria</dt>
             <dd>{visto.categoria ?? "—"}</dd>
             <dt className="text-suave">Cidade</dt>
-            <dd>{visto.municipio ?? "—"}</dd>
+            <dd>{visto.municipio ? (visto.bairro ? `${visto.bairro} · ${visto.municipio}` : visto.municipio) : "—"}</dd>
             <dt className="text-suave">Causas</dt>
             <dd>{!visto.causas?.length ? "nenhuma" : visto.causas.length === 1 ? "1 marcada" : `${visto.causas.length} marcadas`}</dd>
             {dono && (

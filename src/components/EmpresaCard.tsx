@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CausaBadge } from "@/components/CausaBadge";
 import { CoracaoFavorito, type EstadoFavorito } from "@/components/CoracaoFavorito";
 import { FotoEmpresa } from "@/components/FotoEmpresa";
+import { rotuloDoLugar } from "@/lib/bairros";
 import { SeloStatus } from "@/components/SeloStatus";
 import { filtrarCausas } from "@/lib/causas";
 import { perfilVerificado } from "@/lib/verificacao";
@@ -15,6 +16,7 @@ export type EmpresaResumo = {
   categoria: string;
   cidade: string;
   uf: string;
+  bairro?: string | null;
   status: string;
   causas: { causa: string }[];
   _count: { depoimentos: number };
@@ -59,7 +61,7 @@ export function EmpresaCard({
               {empresa.nome}
             </h3>
             <p className="mt-0.5 truncate text-[13px] text-suave">
-              {empresa.categoria} · {empresa.cidade}, {empresa.uf}
+              {empresa.categoria} · {rotuloDoLugar(empresa)}
             </p>
           </div>
         </div>

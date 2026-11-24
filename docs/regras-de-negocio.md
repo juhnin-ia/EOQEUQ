@@ -1065,6 +1065,17 @@ A cidade vem da lista de municípios do IBGE, gravada no projeto em `src/lib/mun
 - **Cadastros de antes da lista** podem ter a cidade escrita de outro jeito ("Sao Paulo"). O `npm run cidades:corrigir` (`scripts/corrigir-cidades.ts`) mostra essas cidades e, com `--aplicar`, grava o nome oficial. Ele refaz o texto da busca do negócio e não muda a data de atualização, que ordena o diretório. As cidades que não estão na lista aparecem para a moderação corrigir pelo painel.
 - **A lista é atualizada à mão,** com `npm run municipios:atualizar`, quando o IBGE criar ou renomear um município.
 
+### Bairros
+
+O bairro do negócio é **opcional**: quem indica nem sempre sabe onde fica. Código: `src/lib/bairros.ts`, o campo em `src/components/CampoBairro.tsx` e a leitura em `lerBairro`, em `src/acoes/empresas.ts`.
+
+- **Cidades com lista de bairros** (`BAIRROS_POR_CIDADE`, hoje só **Crato, CE**): o campo sugere os bairros da cidade escolhida, e o servidor só aceita um da lista, sem diferenciar acentos e maiúsculas ("sao jose" grava "São José"). Fora da lista: "Escolha o bairro na lista de Crato. Se não souber, deixe em branco."
+- **Nas outras cidades** o bairro é texto livre, com até 60 caracteres. Se a cidade já tem um bairro com o mesmo endereço ("sao jose" e "São José"), o novo cadastro usa a grafia já gravada, para o filtro e a página do bairro juntarem os dois.
+- **Onde aparece:** no card e na linha do diretório ("Pimenta · Crato, CE"), no perfil (com link para a página do bairro), no texto da busca e no resumo do cadastro por etapas.
+- **Página do bairro:** `/cidades/<cidade>/<bairro>` (ex.: `/cidades/crato-ce/sao-jose`), só para bairros com negócios no diretório, com os tipos, as causas e os outros bairros da cidade. Entra no sitemap. A página da cidade lista os bairros dela.
+- **Filtro no diretório:** com uma cidade no "Onde?", o `/explorar` mostra o grupo "Bairro em <cidade>" e aceita `?bairro=`. Sem cidade, o bairro é ignorado. Tirar a cidade tira o bairro.
+- **Para acrescentar uma cidade,** inclua a lista dela em `BAIRROS_POR_CIDADE`, com o nome oficial do IBGE na chave (`"Cidade|UF"`). O teste `tests/unit/bairros.test.ts` confere o nome e as repetições.
+
 ---
 
 ## 13. Auditoria

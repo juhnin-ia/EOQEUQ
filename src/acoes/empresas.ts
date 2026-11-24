@@ -5,6 +5,7 @@ import { after } from "next/server";
 import { z } from "zod";
 import { conferirFoto, guardarFoto } from "@/lib/armazenamento";
 import { registrarAuditoria } from "@/lib/auditoria";
+import { bairrosDaCidade, conferirBairro, slugBairro } from "@/lib/bairros";
 import { caminhoSeguro, exigirUsuario } from "@/lib/auth/sessao";
 import { AVISOS } from "@/lib/avisos";
 import { filtrarCausas } from "@/lib/causas";
@@ -72,6 +73,23 @@ function comCidade<T extends { municipio: { nome: string; uf: string } }>({ muni
   return { ...campos, cidade: municipio.nome, uf: municipio.uf };
 }
 
+/**
+ * O bairro do formulário, conferido para a cidade escolhida. Nas cidades sem lista de
+ * bairros, reaproveita a grafia de um bairro já gravado na cidade ("sao jose" → "São José"),
+ * para o filtro e a página do bairro juntarem os dois.
+ */
+async function lerBairro(dados: FormData, cidade: string, uf: string): Promise<{ bairro: string | null } | { erro: string }> {
+  const resultado = conferirBairro(texto(dados, "bairro"), cidade, uf);
+  if ("erro" in resultado || !resultado.bairro || bairrosDaCidade(cidade, uf)) return resultado;
+  const chave = slugBairro(resultado.bairro);
+  const usados = await db.empresa.findMany({
+    where: { cidade, uf, bairro: { not: null } },
+    select: { bairro: true },
+    distinct: ["bairro"],
+  });
+  return { bairro: usados.find((u) => slugBairro(u.bairro!) === chave)?.bairro ?? resultado.bairro };
+}
+
 const esquemaIndicacao = z.object({
   ...camposComuns,
   ...camposContato,
@@ -118,9 +136,15 @@ export async function indicarEmpresa(_estado: EstadoFormulario, dados: FormData)
       if (!texto(dados, campo).trim()) erros[campo] ??= mensagem;
     }
   }
+  let bairro: string | null = null;
+  if (resultado.success) {
+    const lido = await lerBairro(dados, resultado.data.municipio.nome, resultado.data.municipio.uf);
+    if ("erro" in lido) erros.bairro = lido.erro;
+    else bairro = lido.bairro;
+  }
   if (!resultado.success || Object.keys(erros).length > 0) return { erros, valores };
   const { motivo, ...todos } = comCidade(resultado.data);
-  const campos = { ...semContatosDeTerceiros(todos, souDono), mapaUrl: souDono ? todos.mapaUrl : null };
+  const campos = { ...semContatosDeTerceiros(todos, souDono), mapaUrl: souDono ? todos.mapaUrl : null, bairro };
 
   if (instagram) {
     const existente = await db.empresa.findUnique({ where: { instagramUsername: instagram } });
@@ -255,7 +279,9 @@ export async function salvarEmpresa(_estado: EstadoFormulario, dados: FormData):
     ...lerContato(dados),
   });
   if (!resultado.success) return { erros: errosPorCampo(resultado.error), valores };
-  const campos = comCidade(resultado.data);
+  const lido = await lerBairro(dados, resultado.data.municipio.nome, resultado.data.municipio.uf);
+  if ("erro" in lido) return { erros: { bairro: lido.erro }, valores };
+  const campos = { ...comCidade(resultado.data), bairro: lido.bairro };
   const causas = filtrarCausas(dados.getAll("causas").map(String));
 
   try {

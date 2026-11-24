@@ -3,6 +3,7 @@
 // Sem banco, para valer no servidor, no navegador e nos testes.
 // As consultas ficam em src/lib/consultas.ts.
 
+import { slugBairro } from "@/lib/bairros";
 import { buscarCausa, filtrarCausas } from "@/lib/causas";
 import { CATEGORIAS, NOMES_UF, UFS, type Uf } from "@/lib/dominio";
 import { normalizarTexto } from "@/lib/texto";
@@ -19,6 +20,8 @@ export type FiltrosDiretorio = {
   q: string;
   /** O "Onde?" como a pessoa escreveu ou escolheu: "Recife, PE" ou "Pernambuco (estado)". */
   onde: string;
+  /** Bairro da cidade do "Onde?", com a grafia gravada no banco. Sem cidade, não vale. */
+  bairro: string;
   /** Nomes das categorias marcadas (na URL vão como slug). */
   tipos: string[];
   causas: string[];
@@ -31,6 +34,7 @@ export type FiltrosDiretorio = {
 export const SEM_FILTROS: FiltrosDiretorio = {
   q: "",
   onde: "",
+  bairro: "",
   tipos: [],
   causas: [],
   verificados: false,
@@ -75,6 +79,7 @@ export function lerFiltros(params: Record<string, string | string[] | undefined>
   return {
     q: primeiro("q").slice(0, 100),
     onde: onde.slice(0, 80),
+    bairro: primeiro("bairro").slice(0, 60),
     tipos: CATEGORIAS.filter((c) => tipos.has(c)),
     causas: filtrarCausas(lista(params.causa)),
     verificados: primeiro("verificados") === "sim",
@@ -91,6 +96,7 @@ export function hrefDiretorio(filtros: Partial<FiltrosDiretorio> = {}): string {
   const params = new URLSearchParams();
   if (f.q) params.set("q", f.q);
   if (f.onde) params.set("onde", f.onde);
+  if (f.bairro) params.set("bairro", f.bairro);
   for (const tipo of f.tipos) params.append("tipo", slugCategoria(tipo));
   for (const causa of f.causas) params.append("causa", causa);
   if (f.verificados) params.set("verificados", "sim");
@@ -117,6 +123,11 @@ export function alternar(valores: string[], valor: string): string[] {
 
 export function hrefCidade(cidade: string, uf: string): string {
   return `/cidades/${slugCidade(cidade, uf)}`;
+}
+
+/** Página de um bairro: "/cidades/crato-ce/sao-jose". */
+export function hrefBairro(bairro: string, cidade: string, uf: string): string {
+  return `${hrefCidade(cidade, uf)}/${slugBairro(bairro)}`;
 }
 
 export function hrefCausa(slug: string): string {
@@ -258,6 +269,6 @@ export function tituloDoDiretorio(filtros: FiltrosDiretorio, local: Local | null
   else if (filtros.tipos.length === 1) titulo = filtros.tipos[0]!;
   else if (filtros.causas.length === 1 && filtros.tipos.length === 0) titulo = buscarCausa(filtros.causas[0]!)?.nome ?? titulo;
   else if (filtros.tipos.length > 1 || filtros.causas.length > 0 || filtros.verificados) titulo = "Negócios do bem";
-  if (local) titulo += ` em ${local.cidade ?? local.rotulo}`;
+  if (local) titulo += ` em ${local.cidade && filtros.bairro ? `${filtros.bairro}, ${local.cidade}` : (local.cidade ?? local.rotulo)}`;
   return titulo;
 }

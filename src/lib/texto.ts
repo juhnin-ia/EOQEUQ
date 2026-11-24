@@ -14,6 +14,7 @@ export function textoDeBusca(empresa: {
   categoria: string;
   cidade: string;
   uf: string;
+  bairro?: string | null;
   instagramUsername: string;
 }): string {
   return normalizarTexto(
@@ -23,6 +24,7 @@ export function textoDeBusca(empresa: {
       empresa.categoria,
       empresa.cidade,
       empresa.uf,
+      empresa.bairro ?? "",
       empresa.instagramUsername,
     ].join(" "),
   );

@@ -6,6 +6,7 @@ import { Aviso } from "@/components/Aviso";
 import { BotaoEnviar } from "@/components/BotaoEnviar";
 import { enviarSemLimpar } from "@/components/envio";
 import { Campo } from "@/components/Campo";
+import { CampoBairro } from "@/components/CampoBairro";
 import { CampoMunicipio } from "@/components/CampoMunicipio";
 import { EditorHistoria } from "@/components/EditorHistoria";
 import { Historia } from "@/components/Historia";
@@ -20,6 +21,7 @@ type DadosEmpresa = {
   categoria: string;
   cidade: string;
   uf: string;
+  bairro: string;
   site: string;
   whatsapp: string;
   emailContato: string;
@@ -70,6 +72,10 @@ export function FormEmpresa({ empresa, voltar }: { empresa: DadosEmpresa; voltar
             erro={erros.municipio}
           />
         </div>
+        <CampoBairro
+          valorInicial={valor("bairro")}
+          erro={erros.bairro}
+        />
       </section>
 
       <section className="cartao space-y-5 p-6 sm:p-8">

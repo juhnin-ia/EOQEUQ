@@ -129,6 +129,8 @@ model Empresa {
   categoria         String
   cidade            String
   uf                String
+  // Bairro, opcional. Nas cidades de src/lib/bairros.ts vem da lista da cidade, com a grafia dela.
+  bairro            String?
   // Foto do perfil, enviada pelo dono ou pela moderação (ver src/lib/armazenamento.ts).
   fotoUrl           String?
   site              String?
@@ -169,6 +171,7 @@ model Empresa {
 
   @@index([moderacao, oculta, status])
   @@index([uf])
+  @@index([cidade, uf, bairro])
   servicos       Servico[]
 
 }

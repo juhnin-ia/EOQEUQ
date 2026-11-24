@@ -23,7 +23,7 @@ import { usuarioAtual, type UsuarioSessao } from "@/lib/auth/sessao";
 import { buscarCausa, filtrarCausas, GRUPOS, type GrupoCausa } from "@/lib/causas";
 import { db } from "@/lib/db";
 import { buscarPerfil, coracoesDaLista, ehDono, negociosParecidos, podeVerPerfil } from "@/lib/consultas";
-import { hrefCausa, hrefTipo, temPaginaDeTipo } from "@/lib/diretorio";
+import { hrefBairro, hrefCausa, hrefTipo, temPaginaDeTipo } from "@/lib/diretorio";
 import { MODERACAO_EMPRESA } from "@/lib/dominio";
 import { temInstagram } from "@/lib/endereco";
 import { linkPerfil, normalizarEndereco } from "@/lib/instagram";
@@ -141,6 +141,18 @@ async function Perfil({ params, searchParams }: Pick<PageProps<"/empresas/[usuar
                 <span>{empresa.categoria}</span>
               )}
               <span aria-hidden="true">·</span>
+              {empresa.bairro && (
+                <>
+                  {publico ? (
+                    <Link href={hrefBairro(empresa.bairro, empresa.cidade, empresa.uf)} className="hover:text-tinta hover:underline">
+                      {empresa.bairro}
+                    </Link>
+                  ) : (
+                    <span>{empresa.bairro}</span>
+                  )}
+                  <span aria-hidden="true">·</span>
+                </>
+              )}
               {publico ? (
                 <Link href={paginaDaCidade(empresa.cidade, empresa.uf).caminho} className="hover:text-tinta hover:underline">
                   {empresa.cidade}, {empresa.uf}

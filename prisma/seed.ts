@@ -26,6 +26,7 @@ type NegocioExemplo = {
   categoria: string;
   cidade: string;
   uf: string;
+  bairro?: string;
   causas: string[];
   dono?: string;
   historia?: string;
@@ -162,6 +163,40 @@ Trabalhamos quatro dias por semana, todo mundo ganha a mesma faixa salarial publ
     motivo: "Cortou meu cabelo de graça no dia da minha entrevista. Consegui o emprego!",
     moderacao: "pendente",
   },
+  // Crato (CE), a primeira cidade com a lista de bairros (src/lib/bairros.ts).
+  {
+    instagramUsername: "cuscuz.da.pimenta.exemplo",
+    nome: "Cuscuz da Pimenta",
+    resumo: "Café da manhã sertanejo com milho de agricultores da Chapada do Araripe.",
+    categoria: "Alimentação",
+    cidade: "Crato",
+    uf: "CE",
+    bairro: "Pimenta",
+    causas: ["agricultura-familiar", "negocio-de-bairro", "liderado-por-mulheres"],
+    motivo: "O cuscuz é feito pela Dona Socorro e as filhas, com milho comprado direto de quem planta.",
+  },
+  {
+    instagramUsername: "costura.do.centro.exemplo",
+    nome: "Ateliê Costura do Centro",
+    resumo: "Conserto e reforma de roupas que dá curso gratuito de costura para mulheres do bairro.",
+    categoria: "Moda e acessórios",
+    cidade: "Crato",
+    uf: "CE",
+    bairro: "Centro",
+    causas: ["apoia-projetos-sociais", "negocio-de-bairro"],
+    motivo: "Aprendi a costurar lá de graça e hoje tenho minha renda.",
+  },
+  {
+    instagramUsername: "bicicletaria.muriti.exemplo",
+    nome: "Bicicletaria do Muriti",
+    resumo: "Conserto de bicicletas com peças reaproveitadas e oficina aberta para a garotada.",
+    categoria: "Serviços",
+    cidade: "Crato",
+    uf: "CE",
+    bairro: "Muriti",
+    causas: ["sustentavel", "negocio-de-bairro"],
+    motivo: "Reaproveita tudo o que pode e ensina os meninos da rua a consertar a própria bicicleta.",
+  },
 ];
 
 const DEPOIMENTOS: { negocio: string; autor: string; texto: string; resposta?: string }[] = [
@@ -232,6 +267,7 @@ async function main() {
           categoria: n.categoria,
           cidade: n.cidade,
           uf: n.uf,
+          bairro: n.bairro ?? null,
           historia: n.historia ?? "",
           motivoIndicacao: n.motivo ?? null,
           status: n.dono ? "verificada" : "indicada",

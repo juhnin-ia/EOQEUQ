@@ -9,6 +9,7 @@ const CAMPOS_DO_RASCUNHO = {
   nome: 80,
   categoria: 60,
   municipio: 120,
+  bairro: 60,
   resumo: 160,
   motivo: 600,
   telefoneComercial: 30,

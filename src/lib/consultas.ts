@@ -3,6 +3,7 @@ import { cache } from "react";
 import type { EstadoFavorito } from "@/components/CoracaoFavorito";
 import type { UsuarioSessao } from "@/lib/auth/sessao";
 import { Prisma } from "@/generated/prisma/client";
+import { slugBairro } from "@/lib/bairros";
 import { db } from "@/lib/db";
 import { interpretarLocal, slugCidade, type CidadeComNegocios, type FiltrosDiretorio, type Local, type Ordem } from "@/lib/diretorio";
 import { ehFotoDoSite } from "@/lib/fotos";
@@ -137,6 +138,27 @@ async function condicaoDoLocal(local: Local | null): Promise<Prisma.EmpresaWhere
   return { ...uf, cidade: { in: grafias } };
 }
 
+/** Um bairro com negócios no diretório. */
+export type BairroComNegocios = { bairro: string; total: number };
+
+/** Bairros da cidade com negócios no diretório, dos que têm mais para os que têm menos. */
+export const listarBairros = cache(async (cidade: string, uf: string): Promise<BairroComNegocios[]> => {
+  const lugar = await condicaoDoLocal({ cidade, uf, rotulo: `${cidade}, ${uf}` });
+  const grupos = await db.empresa.groupBy({
+    by: ["bairro"],
+    where: { ...NO_DIRETORIO, ...lugar, bairro: { not: null } },
+    _count: { _all: true },
+  });
+  return grupos
+    .map((g) => ({ bairro: g.bairro!, total: g._count._all }))
+    .sort((a, b) => b.total - a.total || a.bairro.localeCompare(b.bairro, "pt-BR"));
+});
+
+/** O bairro de um endereço de /cidades/<cidade>/<bairro>, se ele tem negócios no diretório. */
+export async function bairroDoSlug(cidade: string, uf: string, slug: string): Promise<BairroComNegocios | undefined> {
+  return (await listarBairros(cidade, uf)).find((b) => slugBairro(b.bairro) === slug);
+}
+
 /** A cidade de um endereço de /cidades, se ela tem negócios no diretório. */
 export async function cidadeDoSlug(slug: string): Promise<CidadeComNegocios | undefined> {
   return (await listarCidades()).find((c) => slugCidade(c.cidade, c.uf) === slug);
@@ -197,6 +219,8 @@ function condicao(filtros: FiltrosDiretorio, lugar: Prisma.EmpresaWhereInput, ig
     ...lugar,
     ...(ignorar !== "tipos" && filtros.tipos.length > 0 ? { categoria: { in: filtros.tipos } } : {}),
     ...(ignorar !== "verificados" && filtros.verificados ? { status: "verificada" } : {}),
+    // O bairro só vale junto com uma cidade: "Centro" sozinho seria o centro de todas.
+    ...(filtros.bairro && "cidade" in lugar ? { bairro: filtros.bairro } : {}),
     AND: [
       ...termos.map((termo) => ({ busca: { contains: termo } })),
       ...filtros.causas.map((causa) => ({ causas: { some: { causa } } })),
@@ -211,13 +235,15 @@ export async function buscarDiretorio(filtros: FiltrosDiretorio) {
   const lugar = await condicaoDoLocal(local);
   const onde = condicao(filtros, lugar);
 
-  const [total, itens, categorias, causas, verificados] = await Promise.all([
+  const [total, itens, categorias, causas, verificados, bairros] = await Promise.all([
     db.empresa.count({ where: onde }),
     paginaDoDiretorio(onde, filtros.ordem, termosDaBusca(filtros.q), (filtros.pagina - 1) * POR_PAGINA, POR_PAGINA),
     db.empresa.groupBy({ by: ["categoria"], where: condicao(filtros, lugar, "tipos"), _count: { _all: true } }),
     // Entre os resultados, quantos têm cada causa: é o que sobra ao marcar mais uma.
     db.empresaCausa.groupBy({ by: ["causa"], where: { empresa: onde }, _count: { _all: true } }),
     db.empresa.count({ where: { ...condicao(filtros, lugar, "verificados"), status: "verificada" } }),
+    // Os bairros da cidade escolhida, para o filtro por bairro.
+    local?.cidade && local.uf ? listarBairros(local.cidade, local.uf) : Promise.resolve([]),
   ]);
 
   return {
@@ -229,6 +255,7 @@ export async function buscarDiretorio(filtros: FiltrosDiretorio) {
     porCategoria: Object.fromEntries(categorias.map((c) => [c.categoria, c._count._all])) as Record<string, number>,
     porCausa: Object.fromEntries(causas.map((c) => [c.causa, c._count._all])) as Record<string, number>,
     verificados,
+    bairros,
   };
 }
 
@@ -242,6 +269,7 @@ export async function listarParaSitemap() {
       atualizadoEm: true,
       cidade: true,
       uf: true,
+      bairro: true,
       categoria: true,
       causas: { select: { causa: true } },
     },

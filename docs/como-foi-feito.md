@@ -1077,6 +1077,12 @@ O comando não imprime IDs, hashes, e-mails ou a conexão completa, nem repassa 
 
 A remoção confirmada não é desfeita ao retirar o código. Não recrie sessões apagadas. Contas, links por e-mail, tentativas, pedidos, conteúdo, mídia, auditoria e backups ficam fora desta operação. Este recorte não encerra a política de retenção da #111. As provas usam somente PostgreSQL descartável e dados sintéticos em `tests/db/limpeza-sessoes.test.ts` e `tests/unit/limpeza-sessoes.test.ts`.
 
+### Acrescentar a lista de bairros de uma cidade
+
+1. Em `src/lib/bairros.ts`, acrescente a entrada em `BAIRROS_POR_CIDADE`, com a chave `"Cidade|UF"` no nome oficial do IBGE e os bairros em ordem alfabética. Anote no comentário de onde veio a lista (Correios, prefeitura).
+2. Negócios da cidade já gravados com um bairro fora da lista continuam com ele; a próxima edição pede um da lista.
+3. Rode `npm test`: o teste de `tests/unit/bairros.test.ts` recusa cidade fora do IBGE e bairro repetido.
+
 ### Pôr ou trocar a foto de uma cidade
 
 1. Ache a foto no [Wikimedia Commons](https://commons.wikimedia.org): horizontal, com pelo menos 1280 px de largura, sem pessoa em destaque e com licença de domínio público, CC0, CC BY ou CC BY-SA.

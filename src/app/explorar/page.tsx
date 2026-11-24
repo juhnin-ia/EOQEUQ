@@ -191,6 +191,19 @@ function Filtros({ filtros, resultado }: { filtros: FiltrosDiretorio; resultado:
         )}
       </div>
 
+      {resultado.bairros.length > 0 && (
+        <Grupo titulo={`Bairro em ${resultado.local?.cidade}`}>
+          {resultado.bairros.map(({ bairro, total }) => {
+            const ativo = filtros.bairro === bairro;
+            return (
+              <OpcaoFiltro key={bairro} href={mudarFiltro(filtros, { bairro: ativo ? "" : bairro })} ativo={ativo} total={total}>
+                {bairro}
+              </OpcaoFiltro>
+            );
+          })}
+        </Grupo>
+      )}
+
       <Grupo titulo="Tipo de negócio">
         {tipos.slice(0, TIPOS_VISIVEIS).map(opcaoDeTipo)}
         <details className="group/mais">
@@ -344,7 +357,8 @@ function Vazio({ filtros, resultado }: { filtros: FiltrosDiretorio; resultado: R
 function filtrosAtivos(filtros: FiltrosDiretorio, local: Local | null) {
   const ativos: { rotulo: string; href: string }[] = [];
   if (filtros.q) ativos.push({ rotulo: `“${filtros.q}”`, href: mudarFiltro(filtros, { q: "" }) });
-  if (filtros.onde) ativos.push({ rotulo: local?.rotulo ?? filtros.onde, href: mudarFiltro(filtros, { onde: "" }) });
+  if (filtros.onde) ativos.push({ rotulo: local?.rotulo ?? filtros.onde, href: mudarFiltro(filtros, { onde: "", bairro: "" }) });
+  if (filtros.bairro && local?.cidade) ativos.push({ rotulo: filtros.bairro, href: mudarFiltro(filtros, { bairro: "" }) });
   for (const tipo of filtros.tipos) ativos.push({ rotulo: tipo, href: mudarFiltro(filtros, { tipos: alternar(filtros.tipos, tipo) }) });
   for (const causa of filtros.causas) {
     ativos.push({ rotulo: buscarCausa(causa)?.nome ?? causa, href: mudarFiltro(filtros, { causas: alternar(filtros.causas, causa) }) });

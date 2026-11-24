@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { connection } from "next/server";
+import { slugBairro } from "@/lib/bairros";
 import { filtrarCausas } from "@/lib/causas";
 import { listarParaSitemap } from "@/lib/consultas";
 import { hrefCausa, hrefTipo, temPaginaDeTipo } from "@/lib/diretorio";
@@ -9,7 +10,7 @@ import { fotoDaCidade } from "@/lib/fotos-das-cidades";
 import { nomeOficial } from "@/lib/municipios";
 import { paginaDaCidade, urlAbsoluta } from "@/lib/seo";
 
-// Páginas públicas, as páginas de cidade, causa e tipo que têm negócios, as dos
+// Páginas públicas, as páginas de cidade, bairro, causa e tipo que têm negócios, as dos
 // embaixadores e todos os negócios do diretório, para o Google e o Bing acharem
 // cada um. O robots.txt aponta para cá.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -31,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const negocio of negocios) {
     const cidade = paginaDaCidade(negocio.cidade, negocio.uf);
     marcar(cidade.caminho, negocio.atualizadoEm);
+    if (negocio.bairro) marcar(`${cidade.caminho}/${slugBairro(negocio.bairro)}`, negocio.atualizadoEm);
     const foto = fotoDaCidade(nomeOficial(negocio.cidade, negocio.uf) ?? negocio.cidade, negocio.uf);
     if (foto) fotos.set(cidade.caminho, foto.src);
     if (temPaginaDeTipo(negocio.categoria)) marcar(hrefTipo(negocio.categoria), negocio.atualizadoEm);

@@ -5,8 +5,8 @@ import { CapaDaCidade } from "@/components/CapaDaCidade";
 import { EmbaixadoresDaCidade } from "@/components/Embaixadores";
 import { Atalhos, Vitrine, VitrineCarregando } from "@/components/Vitrine";
 import { CAUSAS } from "@/lib/causas";
-import { buscarDiretorio, cidadeDoSlug, listarCidades } from "@/lib/consultas";
-import { hrefCidade, hrefDiretorio, SEM_FILTROS, slugCidade, type CidadeComNegocios } from "@/lib/diretorio";
+import { buscarDiretorio, cidadeDoSlug, listarBairros, listarCidades } from "@/lib/consultas";
+import { hrefBairro, hrefCidade, hrefDiretorio, SEM_FILTROS, slugCidade, type CidadeComNegocios } from "@/lib/diretorio";
 import { CATEGORIAS, NOMES_UF, type Uf } from "@/lib/dominio";
 import { embaixadoresDaCidade, embaixadoresNoSite } from "@/lib/embaixadores";
 import { fotoDaCidade } from "@/lib/fotos-das-cidades";
@@ -60,10 +60,11 @@ async function Cidade({ params }: Pick<PageProps<"/cidades/[cidade]">, "params">
   const cidade = await cidadeDoSlug((await params).cidade);
   if (!cidade) notFound();
   const { onde, titulo, descricao, migalhas } = textos(cidade);
-  const [resultado, cidades, embaixadores] = await Promise.all([
+  const [resultado, cidades, embaixadores, bairros] = await Promise.all([
     buscarDiretorio({ ...SEM_FILTROS, onde }),
     listarCidades(),
     embaixadoresNoSite(),
+    listarBairros(cidade.cidade, cidade.uf),
   ]);
   const estado = NOMES_UF[cidade.uf as Uf];
   const foto = fotoDaCidade(cidade.cidade, cidade.uf);
@@ -96,6 +97,15 @@ async function Cidade({ params }: Pick<PageProps<"/cidades/[cidade]">, "params">
         foto,
       })}
     >
+      <Atalhos
+        titulo={`Bairros de ${cidade.cidade}`}
+        itens={bairros.map((b) => ({
+          chave: b.bairro,
+          rotulo: b.bairro,
+          total: b.total,
+          href: hrefBairro(b.bairro, cidade.cidade, cidade.uf),
+        }))}
+      />
       <Atalhos
         titulo={`Tipos de negócio em ${cidade.cidade}`}
         itens={CATEGORIAS.filter((tipo) => resultado.porCategoria[tipo]).map((tipo) => ({

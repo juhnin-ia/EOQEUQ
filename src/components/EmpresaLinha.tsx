@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CoracaoFavorito, type EstadoFavorito } from "@/components/CoracaoFavorito";
 import type { EmpresaResumo } from "@/components/EmpresaCard";
 import { FotoEmpresa } from "@/components/FotoEmpresa";
+import { rotuloDoLugar } from "@/lib/bairros";
 import { perfilVerificado } from "@/lib/verificacao";
 
 /** O negócio numa linha, para o diretório em modo lista. Com `favorito`, o coração fica à direita, fora do link. */
@@ -40,13 +41,13 @@ export function EmpresaLinha({ empresa, favorito }: { empresa: EmpresaResumo; fa
         </span>
         <span className="mt-0.5 block truncate text-sm text-tinta/85">{empresa.resumo}</span>
         <span className="mt-0.5 block truncate text-xs text-suave sm:hidden">
-          {empresa.categoria} · {empresa.cidade}, {empresa.uf}
+          {empresa.categoria} · {rotuloDoLugar(empresa)}
         </span>
       </span>
       <span className="hidden shrink-0 text-right text-sm leading-snug text-suave sm:block">
         {empresa.categoria}
         <br />
-        {empresa.cidade}, {empresa.uf}
+        {rotuloDoLugar(empresa)}
       </span>
       <span aria-hidden="true" className="text-suave transition group-hover:translate-x-0.5 group-hover:text-coral-700">
         →
